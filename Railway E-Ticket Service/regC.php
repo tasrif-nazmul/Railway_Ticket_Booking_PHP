@@ -30,103 +30,43 @@
         header('location: reg.php?err=incorrect');
     }
     
-    else if($category == 'user')
-    {
-        $user = $name."|".$email."|". $username."|".$password."|".$ConfirmPassword."|".$gender."|".$category."|".$dob."\r\n";
-
-        //$file = fopen('user.txt', 'a');
-
-        //fwrite($file, $user);
-        $file = fopen('user.txt', 'r');
-        $status=true;
-        while(!feof($file))
-        {
-    
-            $data = fgets($file);
-    
-            $user = explode("|", $data);
-    
-            //print_r($user);
-    
-            if(trim($user[2]) == $username && trim($user[1]) == $email)
-            {
-                $status=false;
-                header('location: reg.php?err=exist');
-    
-            }
-            else if(trim($user[2]) == $username)
-            {
-    
-                $status=false;
-                header('location: reg.php?err=Uexist');
-    
-            }
-            else if(trim($user[1]) == $email)
-            {
-                $status=false;
-                header('location: reg.php?err=Eexist');
-    
-            }
-    
-        }
-        if($status==true)
-        {
-            $file = fopen('user.txt', 'a');
-            $user = $name."|".$email."|". $username."|".$password."|".$ConfirmPassword."|".$gender."|".$category."|".$dob."\r\n";
-            fwrite($file, $user);
-            header('location: signin.php');
-            //echo $username .$email;
-        }
-       
-    }
-
     else if($category == 'admin')
     {
-        $admin = $name."|".$email."|". $username."|".$password."|".$ConfirmPassword."|".$gender."|".$category."|".$dob."\r\n";
+            $con = mysqli_connect('localhost', 'root', '','webtech');
+            $sql = "insert into admin1 values('{$name}', '{$email}','{$username}','{$password}','{$ConfirmPassword}','{$gender}','{$category}','{$dob}')";
+            $status = mysqli_query($con, $sql);
+            
+    
+             if($status)
+            {
+                
+                header('location: signin.php');
+            }
+            else
+            {
+                echo "DB error";
+            }
+        
 
-        //$file = fopen('user.txt', 'a');
+    }
 
-        //fwrite($file, $user);
-        $file = fopen('admin.txt', 'r');
-        $status=true;
-        while(!feof($file))
-        {
+    else if($category == 'user')
+    {
+            $con = mysqli_connect('localhost', 'root', '','webtech');
+            $sql = "insert into users values('{$name}', '{$email}','{$username}','{$password}','{$ConfirmPassword}','{$gender}','{$category}','{$dob}')";
+            $status = mysqli_query($con, $sql);
+            
     
-            $data = fgets($file);
-    
-            $admin = explode("|", $data);
-    
-            //print_r($user);
-    
-            if(trim($admin[2]) == $username && trim($admin[1]) == $email)
+             if($status)
             {
-                $status=false;
-                header('location: reg.php?err=exist');
-    
+                
+                header('location: signin.php');
             }
-            else if(trim($admin[2]) == $username)
+            else
             {
-    
-                $status=false;
-                header('location: reg.php?err=Uexist');
-    
+                echo "DB error";
             }
-            else if(trim($admin[1]) == $email)
-            {
-                $status=false;
-                header('location: reg.php?err=Eexist');
-    
-            }
-    
-        }
-        if($status==true)
-        {
-            $file = fopen('admin.txt', 'a');
-            $admin = $name."|".$email."|". $username."|".$password."|".$ConfirmPassword."|".$gender."|".$category."|".$dob."\r\n";
-            fwrite($file, $admin);
-            header('location: signin.php');
-            //echo $username .$email;
-        }
-       
+        
+
     }
 ?>

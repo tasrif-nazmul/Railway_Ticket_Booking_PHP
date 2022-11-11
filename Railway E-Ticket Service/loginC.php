@@ -17,40 +17,17 @@ if($username == "" || $password == "" || $category == "")
 else if($category == "user")
 {
 
-    $file = fopen('user.txt', 'r');
-
-    $status = false;
-
-    while(!feof($file))
+    $con = mysqli_connect('localhost', 'root', '', 'webtech');
+    $sql = "select * from users where Username='{$username}' and Password='{$password}'";
+    $result = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($result);
+    
+    if($count == 1)
     {
-
-        $data = fgets($file);
-
-        $user = explode("|", $data);
-
-        //print_r($user);
-
-        if(trim($user[2]) == $username && trim($user[3]) == $password)
-        {
-
-            setcookie('status', 'true', time()+3600, '/');
-            setcookie('userid', $username, time()+3600, '/');
-            setcookie('password', $password, time()+3600, '/');
-
-            $status = true;
-
-        }
-
-    }
-
-   
-
-    if($status)
-    {
-
+        setcookie('status', 'true', time()+3600, '/');
         header('location: home.php');
-
     }
+
     else
     {
         header('location: signin.php?err=invalid');
@@ -60,37 +37,18 @@ else if($category == "user")
 else if($category == "admin")
 {
 
-    $file = fopen('admin.txt', 'r');
+    $con = mysqli_connect('localhost', 'root', '','webtech');
+    $sql = "select * from admin where Username='{$username}' and Password='{$password}'";
+    $result = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($result);
 
-    $status = false;
-
-    while(!feof($file)){
-
-        $data = fgets($file);
-
-        $admin = explode("|", $data);
-
-        if(trim($admin[2]) == $username && trim($admin[3]) == $password)
-        {
-
-            setcookie('status', 'true', time()+3600, '/');
-            setcookie('userid', $username, time()+3600, '/');
-            setcookie('password', $password, time()+3600, '/');
-
-            $status = true;
-
-        }
-
-    }
-
-   
-
-    if($status)
+    if($count == 1)
     {
-
+        setcookie('status', 'true', time()+3600, '/');
         header('location: admin/dashboard.php');
-
     }
+    
+
     else
     {
         header('location: signin.php?err=invalid');
