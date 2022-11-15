@@ -33,31 +33,46 @@
     else if($category == 'admin')
     {
             $con = mysqli_connect('localhost', 'root', '','webtech');
-            $sql = "insert into admin1 values('{$name}', '{$email}','{$username}','{$password}','{$ConfirmPassword}','{$gender}','{$category}','{$dob}')";
-            $status = mysqli_query($con, $sql);
-            
-    
-             if($status)
+            $sql = "select * from admin1 where username='{$username}'";
+            $result = mysqli_query($con, $sql);
+            $count = mysqli_num_rows($result);
+
+            if($count > 0)
             {
-                
-                header('location: signin.php');
+                header('location: reg.php?err=idexist');
             }
             else
             {
-                echo "DB error";
+                $sql = "insert into admin1 values('{$name}', '{$email}','{$username}','{$password}','{$ConfirmPassword}','{$gender}','{$category}','{$dob}')";
+                $status = mysqli_query($con, $sql);
+                if($status)
+                {
+                    
+                    header('location: signin.php');
+                }
+                else
+                {
+                    echo "DB error";
+                }
             }
-        
-
     }
 
     else if($category == 'user')
     {
-            $con = mysqli_connect('localhost', 'root', '','webtech');
+        $con = mysqli_connect('localhost', 'root', '','webtech');
+        $sql = "select * from users where username='{$username}'";
+        $result = mysqli_query($con, $sql);
+        $count = mysqli_num_rows($result);
+
+        if($count > 0)
+        {
+            header('location: reg.php?err=idexist');
+        }
+        else
+        {
             $sql = "insert into users values('{$name}', '{$email}','{$username}','{$password}','{$ConfirmPassword}','{$gender}','{$category}','{$dob}')";
             $status = mysqli_query($con, $sql);
-            
-    
-             if($status)
+            if($status)
             {
                 
                 header('location: signin.php');
@@ -66,7 +81,6 @@
             {
                 echo "DB error";
             }
-        
-
+        }
     }
 ?>

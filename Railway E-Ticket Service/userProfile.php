@@ -1,13 +1,21 @@
 <?php
-if(!isset($_COOKIE['status']))
-{
-    header('location: signin.php?err=bad_request');
-}
+    session_start();
+    $username='$username';
+    $category = 'user';
+    if(isset($_COOKIE['status']))
+    {
+        $username=$_COOKIE['username'];
+        $category=$_COOKIE['category'];
+    }
+    else
+    {
+        header('location: signin.php?err=bad_request');
+    }
 ?>
 
 <html>
 <head>
-    <title>Homepage</title>
+    <title>User Profile</title>
 </head>
 <body>
 <center>
@@ -25,46 +33,50 @@ if(!isset($_COOKIE['status']))
             </tr>
             <tr>
                 <td colspan="2" align="left">
-                <?php
-                    $fptr = fopen("user.txt", "r");
-                    if(!$fptr)
-                    {
-                        die("error");
-                    }
-                    //$content = fread($fptr, filesize("user.txt"));
-                    //echo $content;
-                    //echo $_COOKIE['userid'];
-                    //echo $_COOKIE['password'];
-                    $file = fopen('user.txt', 'r');
+                    <?php
 
-                    while(!feof($file)){
-
-                        $data = fgets($file);
-
-                        $user = explode("|", $data);
-
-                        //print_r($user);
-
-                        //echo count($user)."<br>";
-                        if(count($user)!=1)
+                        $con = mysqli_connect('localhost', 'root','','webtech');
+                        $sql = "";
+                        if($category)
                         {
-                            if($user[2] == $_COOKIE['userid'] && $user[3] == $_COOKIE['password'])
+                            $sql = "select Name, Email, Username, Gender, DateOfBirth from users where username = '{$username}'";
+                        }
+                        $result = mysqli_query($con, $sql);
+                        if ($result) 
+                        {
+                            // Fetch one and one row
+                            while ($row = $result->fetch_assoc()) 
                             {
-
-                                
-                                echo "Name : ".$user[0]."<br>"; 
-                                echo "Email : ".$user[1]."<br>"; 
-                                echo "User name : ".$user[2]."<br>"; 
-                                echo "Gender : ".$user[5]."<br>"; 
-                                echo "Category : ".$user[6]."<br>"; 
-                                echo "Date of Birth : ".$user[7]."<br>"; 
-
+                            ?>
+                            <table>
+                                <tr>
+                                    <th align="right">Name:</th>
+                                    <td align="left"><?php echo $row['Name'];?></td>
+                                </tr>
+                                <tr>
+                                    <th align="right">Email:</th>
+                                    <td align="left"><?php echo $row['Email'];?></td>
+                                </tr>
+                                <tr>
+                                    <th align="right">User name:</th>
+                                    <td align="left"><?php echo $row['Username'];?></td>
+                                </tr>
+                                <tr>
+                                    <th align="right">Gender:</th>
+                                    <td align="left"><?php echo $row['Gender'];?></td>
+                                </tr>
+                                <tr>
+                                    <th align="right">Date of Birht:</th>
+                                    <td align="left"><?php echo $row['DateOfBirth'];?></td>
+                                </tr>
+                            </table>
+                            <?php
                             }
+        
                         }
                         
-
-                    }
-                ?>
+                    
+                    ?>
                 </td>
             </tr>
             <tr>

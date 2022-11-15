@@ -1,8 +1,16 @@
 <?php
-if(!isset($_COOKIE['status']))
-{
-    header('location: ../signin.php?err=bad_request');
-}
+    session_start();
+    $username='$username';
+    $category = 'admin';
+    if(isset($_COOKIE['status']))
+    {
+        $username=$_COOKIE['username'];
+        $category=$_COOKIE['category'];
+    }
+    else
+    {
+        header('location: signin.php?err=bad_request');
+    }
 ?>
 
 <html>
@@ -15,56 +23,60 @@ if(!isset($_COOKIE['status']))
         <table border="2px">
             <tr>
                 <td width="300px">
-                <a href="home.php"> <img src="../photo/train.jpg" width="30px">Railway E-ticket Service</a>
+                <a href="home.php"> <img src="photo/train.jpg" width="30px">Railway E-ticket Service</a>
                 </td>
                 <td align="left">
-                    <a href="dashboard.php">Dashboard</a> |
-                    <a href="../logout.php">Logout</a> |
-                    <a href="adminProfile.php">Profile</a>
+                    <a href="home.php">Home</a> |
+                    <a href="logout.php">Logout</a> |
+                    <a href="userProfile.php">Profile</a>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" align="left">
-                <?php
-                    $fptr = fopen("../admin.txt", "r");
-                    if(!$fptr)
-                    {
-                        die("error");
-                    }
-                    //$content = fread($fptr, filesize("user.txt"));
-                    //echo $content;
-                    //echo $_COOKIE['userid'];
-                    //echo $_COOKIE['password'];
-                    $file = fopen('../admin.txt', 'r');
+                    <?php
 
-                    while(!feof($file)){
-
-                        $data = fgets($file);
-
-                        $admin = explode("|", $data);
-
-                        //print_r($user);
-
-                        //echo count($user)."<br>";
-                        if(count($admin)!=1)
+                        $con = mysqli_connect('localhost', 'root','','webtech');
+                        $sql = "";
+                        if($category)
                         {
-                            if($admin[2] == $_COOKIE['userid'] && $admin[3] == $_COOKIE['password'])
+                            $sql = "select Name, Email, Username, Gender, DateOfBirth from admin1 where username = '{$username}'";
+                        }
+                        $result = mysqli_query($con, $sql);
+                        if ($result) 
+                        {
+                            // Fetch one and one row
+                            while ($row = $result->fetch_assoc()) 
                             {
-
-                                
-                                echo "Name : ".$admin[0]."<br>"; 
-                                echo "Email : ".$admin[1]."<br>"; 
-                                echo "admin name : ".$admin[2]."<br>"; 
-                                echo "Gender : ".$admin[5]."<br>"; 
-                                echo "Category : ".$admin[6]."<br>"; 
-                                echo "Date of Birth : ".$admin[7]."<br>"; 
-
+                            ?>
+                            <table>
+                                <tr>
+                                    <th align="right">Name:</th>
+                                    <td align="left"><?php echo $row['Name'];?></td>
+                                </tr>
+                                <tr>
+                                    <th align="right">Email:</th>
+                                    <td align="left"><?php echo $row['Email'];?></td>
+                                </tr>
+                                <tr>
+                                    <th align="right">User name:</th>
+                                    <td align="left"><?php echo $row['Username'];?></td>
+                                </tr>
+                                <tr>
+                                    <th align="right">Gender:</th>
+                                    <td align="left"><?php echo $row['Gender'];?></td>
+                                </tr>
+                                <tr>
+                                    <th align="right">Date of Birht:</th>
+                                    <td align="left"><?php echo $row['DateOfBirth'];?></td>
+                                </tr>
+                            </table>
+                            <?php
                             }
+        
                         }
                         
-
-                    }
-                ?>
+                    
+                    ?>
                 </td>
             </tr>
             <tr>
