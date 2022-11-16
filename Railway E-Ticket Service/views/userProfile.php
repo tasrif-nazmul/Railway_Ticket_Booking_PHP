@@ -1,7 +1,7 @@
 <?php
     session_start();
     $username='$username';
-    $category = 'admin';
+    $category = 'user';
     if(isset($_COOKIE['status']))
     {
         $username=$_COOKIE['username'];
@@ -15,7 +15,7 @@
 
 <html>
 <head>
-    <title>Admin Profile</title>
+    <title>User Profile</title>
 </head>
 <body>
 <center>
@@ -23,23 +23,24 @@
         <table border="2px">
             <tr>
                 <td width="300px">
-                <a href="home.php"> <img src="photo/train.jpg" width="30px">Railway E-ticket Service</a>
+                <a href="home.php"> <img src="../assects/train.jpg" width="30px">Railway E-ticket Service</a>
                 </td>
                 <td align="left">
                     <a href="home.php">Home</a> |
-                    <a href="logout.php">Logout</a> |
+                    <a href="../controllers/logout.php">Logout</a> |
                     <a href="userProfile.php">Profile</a>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" align="left">
+                    <input type="file" name="pp">
                     <?php
 
                         $con = mysqli_connect('localhost', 'root','','webtech');
                         $sql = "";
                         if($category)
                         {
-                            $sql = "select Name, Email, Username, Gender, DateOfBirth from admin1 where username = '{$username}'";
+                            $sql = "select Name, Email, Username, Gender, DateOfBirth from users where username = '{$username}'";
                         }
                         $result = mysqli_query($con, $sql);
                         if ($result) 

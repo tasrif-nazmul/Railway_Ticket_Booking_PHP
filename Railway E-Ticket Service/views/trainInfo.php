@@ -1,7 +1,7 @@
 <?php
 if(!isset($_COOKIE['status']))
 {
-    header('location: signin.php?err=bad_request');
+    header('location: login.php?err=bad_request');
 }
 else if(isset($_GET['err']))
 {
@@ -20,15 +20,15 @@ else if(isset($_GET['err']))
 </head>
 <body>
 <center>
-    <form action="trainInfoVal.php" method="post">
+    <form action="../controllers/trainInfoVal.php" method="post">
         <table border="2px">
             <tr>
                 <td width="300px">
-                <a href="home.php"> <img src="photo/train.jpg" width="30px">Railway E-ticket Service</a>
+                <a href="home.php"> <img src="../assects/train.jpg" width="30px">Railway E-ticket Service</a>
                 </td>
                 <td align="left">
                     <a href="home.php">Home</a> |
-                    <a href="signin.php">Login</a> |
+                    <a href="../controllers/logout.php">logout</a> |
                     <a href="reg.php">Registration</a>
                 </td>
             </tr>

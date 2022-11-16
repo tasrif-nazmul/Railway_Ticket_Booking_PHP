@@ -7,13 +7,9 @@ $category = $_POST['category'];
 
 if($username == "" || $password == "" || $category == "")
 {
-    header('location: signin.php?err=null');
+    header('location: ../views/login.php?err=null');
 }
-// else if($_SESSION['user']['username'] == $username && $_SESSION['user']['password'] == $password)
-// {
-//     $_SESSION['status'] = true;
-//     header('location: home.php');
-// }
+
 else if($category == "user")
 {
 
@@ -27,12 +23,12 @@ else if($category == "user")
         setcookie('status', 'true', time()+3600, '/');
         setcookie('username', $username, time()+3600, '/');
         setcookie('category', 'user', time()+3600, '/');
-        header('location: home.php');
+        header('location: ../views/home.php');
     }
 
     else
     {
-        header('location: signin.php?err=invalid');
+        header('location: ../views/login.php?err=invalid');
     }
 }
 
@@ -49,13 +45,13 @@ else if($category == "admin")
         setcookie('status', 'true', time()+3600, '/');
         setcookie('username', $username, time()+3600, '/');
         setcookie('category', 'admin', time()+3600, '/');
-        header('location: admin/dashboard.php');
+        header('location: ../views/dashboard.php');
     }
     
 
     else
     {
-        header('location: signin.php?err=invalid');
+        header('location: ../views/login.php?err=invalid');
     }
 }
 

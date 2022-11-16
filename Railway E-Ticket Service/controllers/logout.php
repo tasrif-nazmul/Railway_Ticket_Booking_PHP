@@ -3,6 +3,6 @@
     //session_start();
     //session_destroy();
     setcookie('status', 'true', time()-10, '/');
-    header('location: signin.php');
+    header('location: ../views/login.php');
 
 ?>

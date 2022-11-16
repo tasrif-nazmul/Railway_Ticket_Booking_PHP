@@ -25,11 +25,11 @@ if(isset($_GET['err']))
 </head>
 <body>
 <center>
-    <form action="loginC.php" method="post">
+    <form action="../controllers/loginC.php" method="post">
         <table border="2px">
             <tr>
                 <td width="300px">
-                    <img src="photo/train.jpg" width="30px">Railway E-ticket Service
+                    <img src="../assects/train.jpg" width="30px">Railway E-ticket Service
                 </td>
                 <td align="left">
                     <a href="logout.php">Logout</a> |
