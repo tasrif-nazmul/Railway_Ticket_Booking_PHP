@@ -1,7 +1,22 @@
 <?php
+// session_start();
+// $from = $_POST['from'];
+// $to = $_POST['to'];
+// $doj = $_POST['doj'];
+session_start();
+require_once "../models/userModel.php";
+$trainname = $_POST['trname'];
+$Fstation = $_POST['Fstation'];
+$arrivalF = $_POST['arrivalF'];
+$Tstation = $_POST['Tstation'];
+$arrivalT = $_POST['arrivalT'];
+
+require_once "../models/userModel.php";
+
+
 if(!isset($_COOKIE['status']))
 {
-    header('location: signin.php?err=bad_request');
+    header('location: login.php?err=bad_request');
 }
 else if(isset($_GET['err']))
 {
@@ -27,11 +42,11 @@ else if(isset($_GET['err']))
 </head>
 <body>
 <center>
-    <form action="bookTicketVal.php" method="post">
+    <form action = "../controllers/bookTicket.php">
         <table border="2px">
             <tr>
                 <td width="300px">
-                <a href="home.php"> <img src="photo/train.jpg" width="30px">Railway E-ticket Service</a>
+                <a href="home.php"> <img src="../assects/train.jpg" width="30px">Railway E-ticket Service</a>
                 </td>
                 <td align="left">
                     <a href="home.php">Home</a> |
@@ -40,7 +55,7 @@ else if(isset($_GET['err']))
                 </td>
             </tr>
             <tr>
-            <td colspan="2" align="left">
+            <td colspan="2">
                 </br>
                 From Station: 
                 <select name="from">
@@ -71,6 +86,7 @@ else if(isset($_GET['err']))
                 <input type="submit" name="btn" value="Search Train"/>
                 </br>
             </td>
+            
             </tr>
             <tr>
                 <td colspan=2 align="center">

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $username='$username';
+    $username='username';
     $category = 'user';
     if(isset($_COOKIE['status']))
     {
@@ -9,7 +9,7 @@
     }
     else
     {
-        header('location: signin.php?err=bad_request');
+        header('location: login.php?err=bad_request');
     }
 ?>
 

@@ -33,7 +33,7 @@ else if(isset($_GET['err']))
 </head>
 <body>
 <center>
-    <form action="dhakaToKhulnaVal.php" method="post">
+    <form action="../controller/dhakaToKhulnaVal.php" method="post">
         <table border="2px">
             <tr>
                 <td width="300px">

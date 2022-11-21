@@ -33,7 +33,7 @@ else if(isset($_GET['err']))
                 </td>
             </tr>
             <tr>
-                <td colspan="2" align="left">
+                <td>
                 <select name="searchTrain">
                     <option value>Select Train</option>                              
                     <option value="sundarban">SUNDARBAN EXPRESS</option>
@@ -42,6 +42,11 @@ else if(isset($_GET['err']))
                     <option value="dhumketu">DHUMKETU EXPRESS</option>
                 </select></br>
                 <input type="submit" name="btn" value="Search"/>
+                </td>
+                <td>
+
+                    k
+
                 </td>
             </tr>
             <tr>

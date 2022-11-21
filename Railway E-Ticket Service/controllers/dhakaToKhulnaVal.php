@@ -27,11 +27,11 @@
     
     if($class == "" || $sitBooked == 0 || $number == 0)
     {
-        header('location: dhakaToKhulna.php?err=null');
+        header('location: ../views/dhakaToKhulna.php?err=null');
     }
     else if($sitBooked!=$number)
     {
-        header('location: dhakaToKhulna.php?err=wrong');
+        header('location: ../views/dhakaToKhulna.php?err=wrong');
     }
     // else if($number != $sitNo)
     // {
@@ -41,7 +41,7 @@
     else
     {
         $_SESSION['booked_sit']=$booked_sit;
-        header('location: nextpage.php');
+        header('location: ../views/nextpage.php');
         //echo "Number: ".$number;
         //echo "sitbooked: ".$sitBooked;
     }

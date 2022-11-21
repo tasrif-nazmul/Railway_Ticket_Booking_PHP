@@ -8,7 +8,7 @@ if($searchTrain == "")
 }
 else if($searchTrain == "sundarban")
 {
-    header('location: sundarban.php');
+    header('location: ../views/trainInfo.php');
 }
 else if($searchTrain == "chitra")
 {
