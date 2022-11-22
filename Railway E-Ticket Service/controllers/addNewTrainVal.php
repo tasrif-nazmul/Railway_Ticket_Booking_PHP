@@ -18,7 +18,7 @@
         $status = addNewTrain($train);
         if($status)
         {
-
+            setcookie('username', $username, time()+3600, '/');
             header('location: ../views/bookTicket.php');
         }
         else

@@ -1,17 +1,18 @@
 <?php
-if(!isset($_COOKIE['status']))
-{
-    header('location: login.php?err=bad_request');
-}
-else if(isset($_GET['err']))
-{
+include'../models/connect.php';
+// if(!isset($_COOKIE['status']))
+// {
+//     header('location: login.php?err=bad_request');
+// }
+// else if(isset($_GET['err']))
+// {
     
-    if($_GET['err'] == 'null')
-    {
-        echo "Please select a train..";
-    }
+//     if($_GET['err'] == 'null')
+//     {
+//         echo "Please select a train..";
+//     }
    
-}
+// }
 ?>
 
 <html>
@@ -20,7 +21,7 @@ else if(isset($_GET['err']))
 </head>
 <body>
 <center>
-    <form action="../controllers/trainInfoVal.php" method="post">
+    <form method="post">
         <table border="2px">
             <tr>
                 <td width="300px">
@@ -36,18 +37,56 @@ else if(isset($_GET['err']))
                 <td>
                 <select name="searchTrain">
                     <option value>Select Train</option>                              
-                    <option value="sundarban">SUNDARBAN EXPRESS</option>
-                    <option value="chitra">CHITRA EXPRESS</option>
-                    <option value="benapole">BENAPOLE EXPRESS</option>
-                    <option value="dhumketu">DHUMKETU EXPRESS</option>
+                    <option value="1">SUNDARBAN EXPRESS</option>
+                    <option value="2">CHITRA EXPRESS</option>
+                    <option value="3">BENAPOLE EXPRESS</option>
+                    <option value="4">DHUMKETU EXPRESS</option>
                 </select></br>
-                <input type="submit" name="btn" value="Search"/>
+                <input type="submit" name="search">
+
                 </td>
                 <td>
-
-                    k
-
-                </td>
+            
+                <?php 
+                if(isset($_POST['search']))
+                {
+                    $searchTrain = $_POST['searchTrain'];
+                    $sql = "select * from `traininfo` where id = '$searchTrain'";
+                    $result = mysqli_query($con, $sql);
+                    $rowNum = mysqli_fetch_assoc($result);
+                    if($result)
+                    {
+                        if(mysqli_num_rows($result)>0)
+                        {
+                            echo
+                            '<table border="1">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Train Name</th>
+                                    <th>From Station</th>
+                                    <th>Arrival Time</th>
+                                    <th>To Station</th>
+                                    <th>Arrival Time</th>
+                                </tr>
+                                <tr>
+                                    <td>'.$rowNum['id'].'</td>
+                                    <td>'.$rowNum['trainName'].'</td>
+                                    <td>'.$rowNum['fromStation'].'</td>
+                                    <td>'.$rowNum['arrivalF'].'</td>
+                                    <td>'.$rowNum['toStation'].'</td>
+                                    <td>'.$rowNum['arrivalT'].'</td>
+                                </tr>
+                            </table>';
+                        }
+                        else
+                        {
+                            echo'Data not found';
+                        }
+                    }
+                }
+                
+                ?>
+                <td>
             </tr>
             <tr>
                 <td colspan=2 align="center">

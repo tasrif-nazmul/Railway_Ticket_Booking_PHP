@@ -11,7 +11,7 @@ if(!isset($_COOKIE['status']))
 </head>
 <body>
 <center>
-<form action="traindetailsC.php" method="post">
+<form action="../controllers/addTrVal.php" method="post">
         <table border="2px">
             <tr>
                 <td width="300px">
