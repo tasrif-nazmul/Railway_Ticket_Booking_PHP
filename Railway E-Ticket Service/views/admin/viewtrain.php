@@ -1,7 +1,7 @@
 <?php
 if(!isset($_COOKIE['status']))
 {
-    header('location: ../views/login.php?err=bad_request');
+    header('location: ../login.php?err=bad_request');
 }
 ?>
 
@@ -11,7 +11,7 @@ if(!isset($_COOKIE['status']))
 </head>
 <body>
 <center>
-    <form action="dashboard.php" method="post">
+    <form method="post">
         <table border="2px">
             <tr>
                 <td width="300px">
@@ -25,7 +25,7 @@ if(!isset($_COOKIE['status']))
             </tr>
             <?php
     $con = mysqli_connect('localhost', 'root','','webtech');
-    $sql = "select * from train_details";
+    $sql = "select * from traininfo";
     $result = mysqli_query($con, $sql);
     // $data = mysqli_fetch_assoc($result);
     // print_r($data);
@@ -33,20 +33,26 @@ if(!isset($_COOKIE['status']))
     echo "<table border=1> 
             
             <tr>
-                <th>name</th>
-                <th>from</th>
-                <th>to</th>
-                <th>offday</th>
+                <th>Train Name</th>
+                <th>From Station</th>
+                <th>Start Time</th>
+                <th>To station</th>
+                <th>Arrival Time</th>
+                <th>Offday</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>";
 
     while($data  = mysqli_fetch_assoc($result)){
         echo    "<tr>
-                    <td>{$data['name']}</td>        
+                    <td>{$data['trainName']}</td>        
                     <td>{$data['fromStation']}</td>
-                    <td>{$data['toStation']}</td>        
-                    <td>{$data['offday']}</td>   
-                    <td> <a href ='../controllers/editTrain.php?edit={$data['name']}'>Edit</a></td>   
-                    <td> <a href ='../controllers/deleteTrain.php?delete={$data['name']}'>Delete</a></td>            
+                    <td>{$data['arrivalF']}</td>        
+                    <td>{$data['toStation']}</td>   
+                    <td>{$data['arrivalT']}</td>   
+                    <td>{$data['Offday']}</td>   
+                    <td> <a href ='editTrain.php?edit={$data['trainName']}'>Edit</a></td> 
+                    <td> <a href ='deleteTrain.php?delete={$data['trainName']}'>Delete</a></td>            
                 </tr>";
     }
 
