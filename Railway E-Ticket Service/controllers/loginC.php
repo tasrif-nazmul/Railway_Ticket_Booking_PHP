@@ -51,7 +51,7 @@ else if($category == "admin")
         setcookie('status', 'true', time()+3600, '/');
         setcookie('username', $username, time()+3600, '/');
         setcookie('category', 'admin', time()+3600, '/');
-        header('location: ../views/dashboard.php');
+        header('location: ../views/admin/dashboard.php');
     }
     
 

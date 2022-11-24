@@ -35,13 +35,13 @@ include'../models/connect.php';
             </tr>
             <tr>
                 <td>
-                <select name="searchTrain">
-                    <option value>Select Train</option>                              
+                <input type="text" name="searchTrain">
+                    <!-- <option value>Select Train</option>                              
                     <option value="1">SUNDARBAN EXPRESS</option>
                     <option value="2">CHITRA EXPRESS</option>
                     <option value="3">BENAPOLE EXPRESS</option>
                     <option value="4">DHUMKETU EXPRESS</option>
-                </select></br>
+                </select></br> -->
                 <input type="submit" name="search">
 
                 </td>
@@ -51,7 +51,7 @@ include'../models/connect.php';
                 if(isset($_POST['search']))
                 {
                     $searchTrain = $_POST['searchTrain'];
-                    $sql = "select * from `traininfo` where id = '$searchTrain'";
+                    $sql = "select * from `traininfo` where id = '$searchTrain' or trainName = '$searchTrain'";
                     $result = mysqli_query($con, $sql);
                     $rowNum = mysqli_fetch_assoc($result);
                     if($result)

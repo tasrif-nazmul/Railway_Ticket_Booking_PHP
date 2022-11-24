@@ -40,11 +40,11 @@ function insertTicket($ticket)
     //$count = mysqli_num_rows($status);
     return $status;
 }
-function addNewTrain($train)
+function addTrain($train)
 {
     {
         $con = getConnection();
-        $sql = "insert into traininfo values('','{$train['trname']}','{$train['Fstation']}','{$train['arrivalF']}', '{$train['to']}', '{$train['arrivalT']}')";
+        $sql = "insert into traininfo values('','{$train['trainName']}','{$train['fromStation']}','{$train['startTime']}', '{$train['toStation']}', '{$train['arrivalTime']}', '{$train['offday']}')";
         $status = mysqli_query($con, $sql);
         //$count = mysqli_num_rows($status);
         return $status;
