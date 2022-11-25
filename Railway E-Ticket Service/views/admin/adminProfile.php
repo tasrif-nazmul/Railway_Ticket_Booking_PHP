@@ -1,13 +1,13 @@
 <?php
     session_start();
     $username='username';
-    if(isset($_COOKIE['status']))
+    if(isset($_COOKIE['adminStatus']))
     {
         $username=$_COOKIE['username'];
     }
     else
     {
-        header('location: login.php?err=bad_request');
+        header('location: signin.php?err=bad_request');
     }
 ?>
 
@@ -25,8 +25,7 @@
                 </td>
                 <td align="left">
                     <a href="home.php">Home</a> |
-                    <a href="../controllers/logout.php">Logout</a> |
-                    <a href="userProfile.php">Profile</a>
+                    <a href="../../controllers/admin/logoutAdmin.php">Logout</a>
                 </td>
             </tr>
             <tr>
@@ -35,7 +34,7 @@
                     <?php
 
                         $con = mysqli_connect('localhost', 'root','','webtech');
-                        $sql = "select Name, Email, Username, Gender, DateOfBirth from users where username = '{$username}'";
+                        $sql = "select Name, Email, Username, Gender, DateOfBirth from admin where username = '{$username}'";
                         
                         $result = mysqli_query($con, $sql);
                         if ($result) 

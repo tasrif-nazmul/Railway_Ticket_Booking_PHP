@@ -10,6 +10,10 @@ session_start();
 		 
 		  
 	}
+    if(!isset($_COOKIE['adminStatus']))
+{
+    header('location: ../login.php?err=bad_request');
+}
 
 
     $con = mysqli_connect('localhost', 'root', '', 'webtech');

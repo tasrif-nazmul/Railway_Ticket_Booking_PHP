@@ -1,5 +1,5 @@
 <?php
-if(!isset($_COOKIE['status']))
+if(!isset($_COOKIE['adminStatus']))
 {
     header('location: ../login.php?err=bad_request');
 }
@@ -18,8 +18,7 @@ if(!isset($_COOKIE['status']))
                 <a href="dashboard.php"> <img src="../assects/train.jpg" width="30px">Railway E-ticket Service</a>
                 </td>
                 <td align="left">
-                    <a href="login.php">Login</a> |
-                    <a href="reg.php">Regestration</a> |
+                    <a href="../../controllers/admin/logoutAdmin.php">Logout</a> |
                     <a href="adminProfile.php">Admin Profile</a> |
                 </td>
             </tr>

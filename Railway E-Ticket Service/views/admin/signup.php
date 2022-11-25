@@ -25,20 +25,20 @@ if(isset($_GET['err']))
 ?>
 <html>
 <head>
-    <title>Registration</title>
+    <title>Admin Registration</title>
 </head>
 <body>
 <center>
-<form action="../controllers/regC.php" method ="post">
+<form action="../../controllers/admin/signupVal.php" method ="post">
         <table border="2px">
             <tr>
                 <td width="300px">
                     <img src="../assects/train.jpg" width="30px">Railway E-ticket Service
                 </td>
                 <td align="left">
-                    <a href="home.php">Home</a> |
-                    <a href="login.php">Login</a> |
-                    <a href="reg.php">Registration</a>
+                    <a href="">Home</a> |
+                    <a href="">Login</a> |
+                    <a href="">Registration</a>
                 </td>
             </tr>
             <tr>

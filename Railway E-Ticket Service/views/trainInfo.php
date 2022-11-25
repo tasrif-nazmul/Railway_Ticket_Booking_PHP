@@ -1,9 +1,9 @@
 <?php
 include'../models/connect.php';
-// if(!isset($_COOKIE['status']))
-// {
-//     header('location: login.php?err=bad_request');
-// }
+if(!isset($_COOKIE['status']))
+{
+    header('location: login.php?err=bad_request');
+}
 // else if(isset($_GET['err']))
 // {
     

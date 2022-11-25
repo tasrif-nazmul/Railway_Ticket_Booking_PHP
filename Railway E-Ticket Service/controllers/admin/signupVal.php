@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once "../models/userModel.php";
+    require_once "../../models/userModel.php";
     $name = $_POST['name'];
     $email = $_POST['email'];
     $username = $_POST['username'];
@@ -17,33 +17,37 @@
 
     if($name == "" || $email == "" || $username == "" || $password == "" || $ConfirmPassword == "" || $gender == "" || $dob == "")
     {
-        header('location: ../views/reg.php?err=null');
+        header('location: ../../views/admin/signup.php?err=null');
     }
     else if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars)
     {
-        header('location: ../views/reg.php?err=invalidpass');
+        header('location: ../../views/admin/signup.php?err=invalidpass');
 
     }
 
     else if($password!=$ConfirmPassword)
     {
-        header('location: ../views/reg.php?err=incorrect');
+        header('location: ../../views/admin/signup.php?err=incorrect');
     }
 
     
-    else if($count)
+
+
+
+
+    else if($count > 0)
     {
-        header('location: reg.php?err=idexist');
+        header('location: ../../views/admin/signup.php?err=idexist');
     }
     else
     {
+        $admin = ['name'=>$name, 'email'=>$email, 'username'=>$username, 'password'=>$password, 'ConfirmPassword'=>$ConfirmPassword, 'gender'=>$gender, 'dob'=>$dob,];
+        $status = insertAdmin($admin);
 
-        $user = ['name'=>$name, 'email'=>$email, 'username'=>$username, 'password'=>$password, 'ConfirmPassword'=>$ConfirmPassword, 'gender'=>$gender, 'dob'=>$dob,];
-        $status = insertUser($user);
         if($status)
         {
 
-            header('location: ../views/login.php');
+            header('location: ../../views/admin/signin.php');
         }
         else
         {

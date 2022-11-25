@@ -25,7 +25,7 @@ if(isset($_GET['err']))
 </head>
 <body>
 <center>
-    <form action="../controllers/loginC.php" method="post">
+    <form action="../../controllers/admin/signinVal.php" method="post">
         <table border="2px">
             <tr>
                 <td width="300px">
@@ -40,11 +40,13 @@ if(isset($_GET['err']))
                 <td colspan=2 align="center">
                     
                     <fieldset>
-                        Username <input type="text" name="username"><br>
-                        Password <input type="password" name="password"><br>
-                        <input type="submit" name="btn" value="Login"/>
-                        <a href="reg.php">Signup</a>
-                        <a href="forgottenPass.php">Forgotten Password</a></td>
+                        <h3>Admin Login</h3>
+                    Username <input type="text" name="username">
+                    <br>
+                    Password <input type="password" name="password"><br>
+                    <input type="submit" name="btn" value="Login"/>
+                    <a href="signup.php">Signup</a>
+                    <a href="../forgottenPass.php">Forgotten Password</a></td>
                     </fieldset>
                 </td>
             </tr>
