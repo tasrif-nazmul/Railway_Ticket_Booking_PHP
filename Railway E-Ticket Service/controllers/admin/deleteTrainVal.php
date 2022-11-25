@@ -1,15 +1,13 @@
 <?php
-
+require_once'../../models/trainModel.php';
  
 
 if(isset($_COOKIE['row_name'])){
 $row_name=$_COOKIE['row_name'];
 
-        $con = mysqli_connect('localhost', 'root', '', 'webtech');
-        $sql = "delete from traininfo where trainName='{$row_name}'";
-        $status = mysqli_query($con, $sql);
-        
-        if($status){
+        $status = deleteTrain($row_name);
+        if($status)
+        {
             header('location: ../../views/admin/viewtrain.php?message=delete_successful');
 
             setcookie('row_name',$row_name,time()-60,'/');

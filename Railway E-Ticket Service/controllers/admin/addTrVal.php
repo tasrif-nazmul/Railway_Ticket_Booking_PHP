@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once'../../models/userModel.php';
+    require_once'../../models/trainModel.php';
     
     $trainName=$_POST['trainName'];
     $fromStation=$_POST['fromStation'];

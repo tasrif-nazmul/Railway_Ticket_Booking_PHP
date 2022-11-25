@@ -83,34 +83,14 @@ function adminExist($username,$email)
             return false;
         }
 }
-function trainExist($trainName)
-{
-    $con = getConnection();
-    $sql = "select * from traininfo where trainName='{$trainName}'";
-    $status = mysqli_query($con, $sql);
-    $count = mysqli_num_rows($status);
-        // Closing database connection
-        $con->close();
-    
-        if($count > 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-}
-function addTrain($train)
+
+function suspend($row_name)
 {
     {
         $con = getConnection();
-        $sql = "insert into traininfo values('','{$train['trainName']}','{$train['fromStation']}','{$train['startTime']}', '{$train['toStation']}', '{$train['arrivalTime']}', '{$train['offday']}')";
+        $sql = "delete from users where Username='{$row_name}'";
         $status = mysqli_query($con, $sql);
-        //$count = mysqli_num_rows($status);
         return $status;
     }
 }
-
-
 ?>

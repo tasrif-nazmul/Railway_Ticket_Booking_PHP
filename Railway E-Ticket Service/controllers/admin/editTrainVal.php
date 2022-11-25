@@ -1,5 +1,5 @@
 <?php
-require_once'../../models/userModel.php';
+require_once'../../models/trainModel.php';
 $trainName = $_POST["trainName"];
 $fromStation= $_POST["fromStation"];
 $startTime= $_POST["startTime"];
@@ -24,12 +24,15 @@ else
 
 
 
-        $con = mysqli_connect('localhost', 'root', '', 'webtech');
-        $sql = "update traininfo set trainName='{$trainName}', fromStation='{$fromStation}',arrivalF='{$startTime}', toStation='{$toStation}',arrivalT='{$arrivalTime}', offday='{$offday}' where trainName='{$row_name}'";
-        $status = mysqli_query($con, $sql);
+        // $con = mysqli_connect('localhost', 'root', '', 'webtech');
+        // $sql = "update traininfo set trainName='{$trainName}', fromStation='{$fromStation}',arrivalF='{$startTime}', toStation='{$toStation}',arrivalT='{$arrivalTime}', offday='{$offday}' where trainName='{$row_name}'";
+        // $status = mysqli_query($con, $sql);
 
-        
-        if($status){
+        //$updateTrain = ['trainName'=>$trainName, 'fromStation'=>$fromStation, 'arrivalF'=>$startTime,'toStation'=>$toStation,'arrivalT'=>$arrivalTime,'offday'=>$offday,];
+
+        $status = updateTrain($trainName,$fromStation,$startTime, $toStation,$arrivalTime,$offday,$row_name);
+        if($status)
+        {
             header('location: ../../views/admin/viewtrain.php?message=update_successful');
 
             setcookie('row_name',$row_name,time()-60,'/');
