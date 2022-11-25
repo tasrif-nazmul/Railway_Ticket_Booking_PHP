@@ -47,10 +47,10 @@ function insertAdmin($admin)
     //$count = mysqli_num_rows($status);
     return $status;
 }
-function userExist($username)
+function userExist($username,$email)
 {
     $con = getConnection();
-    $sql = "select * from users where Username='{$username}'";
+    $sql = "select * from users where Username='{$username}' or Email='{$email}'";
     $status = mysqli_query($con, $sql);
     $count = mysqli_num_rows($status);
         // Closing database connection
@@ -65,10 +65,10 @@ function userExist($username)
             return false;
         }
 }
-function adminExist($username)
+function adminExist($username,$email)
 {
     $con = getConnection();
-    $sql = "select * from admin where Username='{$username}'";
+    $sql = "select * from admin where Username='{$username}' or Email='{$email}'";
     $status = mysqli_query($con, $sql);
     $count = mysqli_num_rows($status);
         // Closing database connection

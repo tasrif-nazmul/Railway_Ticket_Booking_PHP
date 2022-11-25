@@ -31,9 +31,9 @@
     }
 
     
-    else if(userExist($username))
+    else if(userExist($username,$email))
     {
-        header('location: ../views/reg.php?err=Uexist');
+        header('location: ../views/reg.php?err=exist');
     }
     else
     {

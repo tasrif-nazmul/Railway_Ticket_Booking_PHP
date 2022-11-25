@@ -5,9 +5,9 @@ if(isset($_GET['err']))
      {
          echo "Must be filled all info...";
      }
-     else if($_GET['err'] == 'Uexist')
+     else if($_GET['err'] == 'exist')
      {
-         echo "The username is already exist...";
+         echo "The email or username are already exist...";
      }
 
     else if($_GET['err'] == 'incorrect')
