@@ -37,6 +37,7 @@ function insertUser($user)
     $status = mysqli_query($con, $sql);
     //$count = mysqli_num_rows($status);
     return $status;
+    
 }
 function insertAdmin($admin)
 {
@@ -45,6 +46,24 @@ function insertAdmin($admin)
     $status = mysqli_query($con, $sql);
     //$count = mysqli_num_rows($status);
     return $status;
+}
+function adminExist($username)
+{
+    $con = getConnection();
+    $sql = "select * from admin where Username='{$username}'";
+    $status = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($status);
+        // Closing database connection
+        $con->close();
+    
+        if($count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 }
 function insertTicket($ticket)
 {

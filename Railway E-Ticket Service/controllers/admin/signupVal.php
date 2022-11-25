@@ -35,7 +35,7 @@
 
 
 
-    else if($count > 0)
+    else if(adminExist($username))
     {
         header('location: ../../views/admin/signup.php?err=idexist');
     }
