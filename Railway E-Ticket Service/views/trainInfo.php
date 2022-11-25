@@ -61,7 +61,6 @@ if(!isset($_COOKIE['status']))
                             echo
                             '<table border="1">
                                 <tr>
-                                    <th>ID</th>
                                     <th>Train Name</th>
                                     <th>From Station</th>
                                     <th>Arrival Time</th>
@@ -69,7 +68,6 @@ if(!isset($_COOKIE['status']))
                                     <th>Arrival Time</th>
                                 </tr>
                                 <tr>
-                                    <td>'.$rowNum['id'].'</td>
                                     <td>'.$rowNum['trainName'].'</td>
                                     <td>'.$rowNum['fromStation'].'</td>
                                     <td>'.$rowNum['arrivalF'].'</td>

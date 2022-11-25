@@ -40,6 +40,7 @@ if(isset($_GET['err']))
                 <td colspan=2 align="center">
                     
                     <fieldset>
+                        <h3>User Login</h3>
                         Username <input type="text" name="username"><br>
                         Password <input type="password" name="password"><br>
                         <input type="submit" name="btn" value="Login"/>

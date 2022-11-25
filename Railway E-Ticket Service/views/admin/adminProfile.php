@@ -13,7 +13,7 @@
 
 <html>
 <head>
-    <title>User Profile</title>
+    <title>Admin Profile</title>
 </head>
 <body>
 <center>

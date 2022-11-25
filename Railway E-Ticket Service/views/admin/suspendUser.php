@@ -14,9 +14,9 @@ session_start();
 		 
 		  
 	}
-	if (isset($_GET['delete'])) 
+	if (isset($_GET['suspend'])) 
     {
-		$name = $_GET['delete'];
+		$name = $_GET['suspend'];
 
         setcookie('row_name',$name,time()+60*60,'/');
 		 
@@ -24,81 +24,109 @@ session_start();
 	}
 
     $con = mysqli_connect('localhost', 'root', '', 'webtech');
-    $sql = "select * from traininfo where trainName='{$name}'";
+    $sql = "select * from users where Username='{$name}'";
     $result = mysqli_query($con, $sql);
 
     $data  = mysqli_fetch_assoc($result);
 
     if (!isset($data))
     { 
-        header('location: viewtrain.php?err=null_values');
+        header('location: viewUser.php?err=null_values');
     }
 ?>
 
 
 <html>
 <head>
-    <title>Delete Train</title>
+    <title>Suspend User</title>
 </head>
     <body>
-    <!-- <a href="../views/dashboard.php">Home</a>&nbsp <a href="addTrain.php">Add Train </a> &nbsp <a href="../views/viewtrain.php">Display Trains </a>
-    <br><br> -->
     <fieldset>
-    <legend>Delete Train</legend>
-        <form method="post" action="../../controllers/admin/deleteTrainVal.php" enctype=""> 
+    <legend>Suspend User</legend>
+        <form method="post" action="../../controllers/admin/suspendUserVal.php" enctype=""> 
             <table>    
                 
                 <tr>
                     <td>
-                        Train Name:
+                        Name
                     </td>
+
                     <td>
-                        <?php echo $data['trainName']; ?>
+                        :
                     </td>
-                </tr>
-                <tr>
+
                     <td>
-                        From Station:
-                    </td>
-                    <td>
-                        <?php echo $data['fromStation']; ?>
+                        <?php echo $data['Name']; ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Start Time:
+                        Email
                     </td>
+
                     <td>
-                        <?php echo $data['arrivalF']; ?>
+                        :
                     </td>
-                </tr>
-                <tr>
+
                     <td>
-                        To Station:
-                    </td>
-                    <td>
-                        <?php echo $data['toStation']; ?>
+                        <?php echo $data['Email']; ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Arrival Time:
+                        User Name
                     </td>
+
                     <td>
-                        <?php echo $data['arrivalT']; ?>
+                        :
+                    </td>
+
+                    <td>
+                        <?php echo $data['Username']; ?>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Off Day:
+                        Password
                     </td>
+
                     <td>
-                        <?php echo $data['Offday']; ?>
+                        :
+                    </td>
+
+                    <td>
+                        <?php echo $data['Password']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Gender
+                    </td>
+
+                    <td>
+                        :
+                    </td>
+
+                    <td>
+                        <?php echo $data['Gender']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Date Of Birth
+                    </td>
+
+                    <td>
+                        :
+                    </td>
+
+                    <td>
+                        <?php echo $data['DateOfBirth']; ?>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Delete" name="delete">
+                        <input type="submit" value="Suspend" name="suspend">
                     </td>
                 </tr>
 

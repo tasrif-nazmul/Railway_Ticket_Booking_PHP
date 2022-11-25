@@ -1,97 +1,65 @@
 <?php
 if(!isset($_COOKIE['adminStatus']))
 {
-    header('location: ../login.php?err=bad_request');
+    header('location: signin.php?err=bad_request');
 }
 ?>
 
 <html>
 <head>
-    <title>Homepage</title>
+    <title>View User</title>
 </head>
 <body>
 <center>
-    <form action="adminpanel.php" method="post">
+    <form method="post">
         <table border="2px">
             <tr>
                 <td width="300px">
-                    <img src="../photo/train.jpg" width="30px">Railway E-ticket Service
+                    <img src="../assects/train.jpg" width="30px">Railway E-ticket Service
                 </td>
                 <td align="left">
                     <a href="dashboard.php">Dashboard</a> |
-                    <a href="../logout.php">Logout</a> |
-                    <a href="../reg.php">Registration</a>
+                    <a href="../../controllers/admin/logoutAdmin.php">Logout</a> |
+                    <a href="">Registration</a>
                 </td>
             </tr>
-            <?php 
+            <?php
+    $con = mysqli_connect('localhost', 'root','','webtech');
+    $sql = "select * from users";
+    $result = mysqli_query($con, $sql);
 
-    $lines = file("../user.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $data = array_map(function($v){
-        list($name, $email, $username, $password, $confirmpassword, $gendar, $category) = explode("|", $v);
-        return ["name" => $name, "email" => $email, "username" => $username, "password"=>$password, "confirmpassword"=>$confirmpassword, "gendar"=>$gendar, "category"=>$category];
-    }, $lines);
+    echo "<table border=1> 
+            
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>User Name</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Date Of Birth</th>
+                <th>Suspend</th>
+            </tr>";
 
- 
+    while($data  = mysqli_fetch_assoc($result)){
+        echo    "<tr>
+                    <td>{$data['Name']}</td>        
+                    <td>{$data['Email']}</td>
+                    <td>{$data['Username']}</td>        
+                    <td>{$data['Password']}</td>   
+                    <td>{$data['Gender']}</td>   
+                    <td>{$data['DateOfBirth']}</td>
+                    <td> <a href ='suspendUser.php?suspend={$data['Username']}'>Suspend</a></td>            
+                </tr>";
+    }
 
-?>
-            <table width="200" border="1">
-    <tr>
-        <td width="855">Name</td>
-        <td width="99">Email</td>
-        <td width="99">Username</td>
-        <td width="99">Password</td>
-        <td width="99">Confirm Password</td>
-        <td width="99">Gendar</td>
-        <td width="99">Category</td>
-      
-
-    </tr>
-<?php foreach($data as $user)
-
-{ ?>
-    <tr>
-<td height="20">
-<?php 
-echo $user["name"]; 
-?>
-</td>
-<td>
-<?php 
-echo $user["email"]; 
-?>
-</td>
-<td>
-<?php 
-echo $user["username"]; 
-?>
-</td>
-<td>
-<?php 
-echo $user["password"]; 
-?>
-</td>
-<td>
-<?php 
-echo $user["confirmpassword"]; 
-?>
-</td>
-<td>
-<?php 
-echo $user["gendar"]; 
-?>
-</td>
-<td>
-<?php 
-echo $user["category"]; 
-?>
-</td>
-
-    </tr>
-<?php } 
+    echo "</table>";
 ?>
 </table>
             <tr>
-                <td> <input type="button" value="Back" onclick="history.back()"><br> </td>
+            <br>
+            <td> <button onClick="window.location.href='dashboard.php';">  
+                Back  
+                </button> </td><br>
                 <td colspan=2 align="center">
                     Presented by: Nazmul, Jannat, Aditya, Uma
                 </td>

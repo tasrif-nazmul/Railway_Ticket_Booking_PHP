@@ -37,7 +37,7 @@ if(isset($_GET['err']))
                 </td>
                 <td align="left">
                     <a href="">Home</a> |
-                    <a href="">Login</a> |
+                    <a href="signin.php">Login</a> |
                     <a href="">Registration</a>
                 </td>
             </tr>
