@@ -6,6 +6,10 @@
         {
             echo"Must be filled all info....";
         }
+        if($_GET['err'] == 'trExist')
+        {
+            echo"This Train is already exist....";
+        }
     }
     if(!isset($_COOKIE['adminStatus']))
 {

@@ -31,9 +31,9 @@
     }
 
     
-    else if($count)
+    else if(userExist($username))
     {
-        header('location: reg.php?err=idexist');
+        header('location: ../views/reg.php?err=Uexist');
     }
     else
     {

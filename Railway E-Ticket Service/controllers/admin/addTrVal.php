@@ -14,12 +14,13 @@
         header('location: ../../views/admin/addTr.php?err=null');
     }
     
+    else if(trainExist($trainName))
+    {
+        header('location: ../../views/admin/addTr.php?err=trExist');
+    }
         
     else
     {
-        // $con = mysqli_connect('localhost', 'root', '', 'webtech');
-        // $sql1 ="INSERT INTO `train_details`(`name`, `fromStation`, `toStation`, `offday`) VALUES ('{$trainName}','{$fromStation}','{$toStation}','{$offday}')";
-        // $result1 = mysqli_query($con, $sql1);
         $train = ['trainName'=>$trainName,'fromStation'=>$fromStation,'startTime'=>$startTime,'toStation'=>$toStation,'arrivalTime'=>$arrivalTime,'offday'=>$offday, ];
         $status = addTrain($train);
         if($status)

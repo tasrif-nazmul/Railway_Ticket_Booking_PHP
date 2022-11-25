@@ -47,6 +47,24 @@ function insertAdmin($admin)
     //$count = mysqli_num_rows($status);
     return $status;
 }
+function userExist($username)
+{
+    $con = getConnection();
+    $sql = "select * from users where Username='{$username}'";
+    $status = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($status);
+        // Closing database connection
+        $con->close();
+    
+        if($count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+}
 function adminExist($username)
 {
     $con = getConnection();
@@ -65,13 +83,23 @@ function adminExist($username)
             return false;
         }
 }
-function insertTicket($ticket)
+function trainExist($trainName)
 {
     $con = getConnection();
-    $sql = "insert into ticketbook values('','{$ticket['from']}', '{$ticket['to']}', '{$ticket['doj']}')";
+    $sql = "select * from traininfo where trainName='{$trainName}'";
     $status = mysqli_query($con, $sql);
-    //$count = mysqli_num_rows($status);
-    return $status;
+    $count = mysqli_num_rows($status);
+        // Closing database connection
+        $con->close();
+    
+        if($count > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 }
 function addTrain($train)
 {

@@ -37,7 +37,7 @@
 
     else if(adminExist($username))
     {
-        header('location: ../../views/admin/signup.php?err=idexist');
+        header('location: ../../views/admin/signup.php?err=Uexist');
     }
     else
     {
