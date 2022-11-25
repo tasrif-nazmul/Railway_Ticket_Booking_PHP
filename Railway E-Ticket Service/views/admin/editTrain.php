@@ -23,30 +23,23 @@ session_start();
 
 <html>
 <head>
-    <title>Edit Product</title>
+    <title>Edit Train</title>
 
     <body>
     <!-- <a href="../views/dashboard.php">Home</a>&nbsp <a href="addTrain.php">Add Train </a> &nbsp <a href="../views/viewtrain.php">Display Trains </a>
     <br><br> -->
     <fieldset>
     <legend>Edit Train</legend>
-         <table>
+         
              
             <form method="post" action="../../controllers/admin/editTrainVal.php" enctype=""> 
+            <table> 
                 
-                <table>
                 <tr>
                                 <td>
                                     Train Name 
                                 </td>
                                 <td>
-                                <!-- <select name="name">
-                                <option value>Add a train</option>                              
-                                <option value="SUNDARBAN EXPRESS">SUNDARBAN EXPRESS</option>
-                                <option value="CHITRA EXPRESS">CHITRA EXPRESS</option>
-                                <option value="BENAPOLE EXPRESS">BENAPOLE EXPRESS</option>
-                                <option value="DHUMKETU EXPRESS">DHUMKETU EXPRESS</option>
-                                </select></br> -->
 
                                 <input type="text" placeholder="Enter Train new name" name="trainName">
                                 </td>
@@ -99,6 +92,5 @@ session_start();
                                 </td>
                             </tr>
 
-
+                            </table>
 </form>
-</table>

@@ -52,7 +52,7 @@ if(!isset($_COOKIE['status']))
                     <td>{$data['arrivalT']}</td>   
                     <td>{$data['Offday']}</td>   
                     <td> <a href ='editTrain.php?edit={$data['trainName']}'>Edit</a></td> 
-                    <td> <a href ='deleteTrain.php?delete={$data['trainName']}'>Delete</a></td>            
+                    <td> <a href ='deleteTrain.php?delete={$data['trainName']}'>Delete</a></td>
                 </tr>";
     }
 

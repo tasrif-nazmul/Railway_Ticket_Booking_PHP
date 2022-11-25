@@ -2,6 +2,14 @@
 
 session_start();
 
+	if (isset($_GET['err'])) 
+    {
+		if($_GET['err'] == 'null')
+
+        echo"Must be filled all information...";
+		 
+		  
+	}
 	if (isset($_GET['delete'])) 
     {
 		$name = $_GET['delete'];
@@ -11,16 +19,15 @@ session_start();
 		  
 	}
 
-
     $con = mysqli_connect('localhost', 'root', '', 'webtech');
-    $sql = "select * from train_details where name='{$name}'";
+    $sql = "select * from traininfo where trainName='{$name}'";
     $result = mysqli_query($con, $sql);
 
     $data  = mysqli_fetch_assoc($result);
 
     if (!isset($data))
     { 
-        header('location: ../views/viewtrain.php?err=null_values');
+        header('location: viewtrain.php?err=null_values');
     }
 ?>
 
@@ -28,24 +35,73 @@ session_start();
 <html>
 <head>
     <title>Delete Train</title>
-
+</head>
     <body>
+    <!-- <a href="../views/dashboard.php">Home</a>&nbsp <a href="addTrain.php">Add Train </a> &nbsp <a href="../views/viewtrain.php">Display Trains </a>
+    <br><br> -->
     <fieldset>
-    <legend>DELETE Train</legend>
-         <table>
-             
-            <form method="post" action="deleteTrainC.php" enctype=""> 
+    <legend>Delete Train</legend>
+        <form method="post" action="../../controllers/admin/deleteTrainVal.php" enctype=""> 
+            <table>    
                 
-                <table>
-                    <tr><td>Name: <?php echo $data['name']; ?></td></tr>
-                    <tr><td>fromStation: <?php echo $data['fromStation']; ?></td></tr>
-                    <tr><td>toStation: <?php echo $data['toStation']; ?></td></tr>
-                    <tr><td>Offday: <?php echo $data['offday']; ?></td></tr>
-                    
-                   
-                    <tr><td><hr></td></tr>
-                    <tr><td><input type="submit" value="Delete" ></input> </td></tr>
+                <tr>
+                    <td>
+                        Train Name:
+                    </td>
+                    <td>
+                        <?php echo $data['trainName']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        From Station:
+                    </td>
+                    <td>
+                        <?php echo $data['fromStation']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Start Time:
+                    </td>
+                    <td>
+                        <?php echo $data['arrivalF']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        To Station:
+                    </td>
+                    <td>
+                        <?php echo $data['toStation']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Arrival Time:
+                    </td>
+                    <td>
+                        <?php echo $data['arrivalT']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Off Day:
+                    </td>
+                    <td>
+                        <?php echo $data['Offday']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Delete" name="delete">
+                    </td>
+                </tr>
 
+            </table>
+        </form>
+    </fieldset>
+    </body>
+</html>
 
-</form>
-</table>
+        
