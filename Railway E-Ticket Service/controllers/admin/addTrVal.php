@@ -25,7 +25,8 @@
         $status = addTrain($train);
         if($status)
         {
-            echo"Added Successful";
+            //echo"Added Successful";
+            header('location: ../../views/admin/addTr.php?success=yes');
         }
 
     }

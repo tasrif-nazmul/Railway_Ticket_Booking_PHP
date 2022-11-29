@@ -3,13 +3,13 @@
 // $from = $_POST['from'];
 // $to = $_POST['to'];
 // $doj = $_POST['doj'];
-session_start();
-require_once "../models/userModel.php";
-$trainname = $_POST['trname'];
-$Fstation = $_POST['Fstation'];
-$arrivalF = $_POST['arrivalF'];
-$Tstation = $_POST['Tstation'];
-$arrivalT = $_POST['arrivalT'];
+// session_start();
+// require_once "../models/userModel.php";
+// $trainname = $_POST['trname'];
+// $Fstation = $_POST['Fstation'];
+// $arrivalF = $_POST['arrivalF'];
+// $Tstation = $_POST['Tstation'];
+// $arrivalT = $_POST['arrivalT'];
 
 require_once "../models/userModel.php";
 
@@ -42,7 +42,7 @@ else if(isset($_GET['err']))
 </head>
 <body>
 <center>
-    <form action = "../controllers/bookTicket.php">
+    <form action = "../controllers/bookTicketVal.php">
         <table border="2px">
             <tr>
                 <td width="300px">

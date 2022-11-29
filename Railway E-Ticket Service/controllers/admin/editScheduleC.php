@@ -1,33 +1,30 @@
 <?php
-
-$name= $_POST["name"];
-$type= $_POST["type"];
-$start= $_POST["start"];
-$finish=$_POST["finish"];
+require_once'../../models/trainModel.php';
+$trainName = $_POST["trainName"];
+$fromStation= $_POST["fromStation"];
+$toStation= $_POST["toStation"];
+$doj=$_POST["doj"];
 $row_name;
 
 if(isset($_COOKIE['row_name'])){
 $row_name=$_COOKIE['row_name'];
 }
 
-if($name=="" || $type =="" || $start=="" || $finish=="" )
+if($trainName=="" || $fromStation =="" || $toStation == "" || $doj=="" )
 {
 
-    header('location: editTrain.php?err=null');
+    header('location: ../../views/admin/editSchedule.php?err=null');
 
 }
 
-else{  if($display!="yes"){$display="no";}
+else
+{
 
 
-
-        $con = mysqli_connect('localhost', 'root', '', 'webtech');
-        $sql = "update train_schedule set name='{$name}', type='{$type}', start='{$start}', finish='{$finish}' where name='{$row_name}'";
-        $status = mysqli_query($con, $sql);
-        
-        
-        if($status){
-            header('location: ../views/viewSchedule.php?message=update_successful');
+        $status = updateSchedule($trainName,$fromStation,$toStation,$doj,$row_name);
+        if($status)
+        {
+            header('location: ../../views/admin/viewSchedule.php?message=update_successful');
 
             setcookie('row_name',$row_name,time()-60,'/');
         }else{
@@ -35,7 +32,7 @@ else{  if($display!="yes"){$display="no";}
 
            setcookie('row_name',$row_name,time()-60,'/');
 
-           header('location: ../views/viewSchedule.php?err=update_failed');
+           header('location: ../../views/admin/viewSchedule.php?err=update_failed');
         }
 }
  

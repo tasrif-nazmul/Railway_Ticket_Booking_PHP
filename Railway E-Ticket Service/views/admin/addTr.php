@@ -11,6 +11,13 @@
             echo"This Train is already exist....";
         }
     }
+    if(isset($_GET['success']))
+    {
+        if($_GET['success'] == 'yes')
+        {
+            echo"Train Added Successfully";
+        }
+    }
     if(!isset($_COOKIE['adminStatus']))
 {
     header('location: signin.php?err=bad_request');
@@ -88,7 +95,8 @@
                                     Offday
                                 </td>
                                 <td>
-                                <input type="text" name="offday"><br>
+                                    <input type="day" name="offday"><br>
+                                
                                 </td>
                             </tr>
 

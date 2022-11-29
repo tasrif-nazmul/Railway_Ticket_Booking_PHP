@@ -1,30 +1,29 @@
 <?php
     session_start();
-    $name=$_POST['name'];
-    $type=$_POST['type'];
-    $start=$_POST['start'];
-    $finish=$_POST['finish'];
-    $display=$_POST['display'];
+    require_once'../../models/trainModel.php';
+    
+    $trainName=$_POST['trainName'];
+    $fromStation=$_POST['fromStation'];
+    $toStation=$_POST['toStation'];
+    $dateOfJourney=$_POST['dateOfJourney'];
 
-    if(empty($name) || empty($type) || empty($start) || empty($finish))
+    if($trainName == "" || $fromStation == "" || $toStation == "" || $dateOfJourney == "")
     {
-        $_SESSION['err']="All must be filled up";
-        header('location: ..//views/addSchedule.php');
+        header('location: ../../views/admin/addSchedule.php?err=null');
     }
     
-        
-    else if(empty($display))
+    else if(scheduleExist($trainName))
     {
-            header('location: ../views/viewSchedule.php');
+        header('location: ../../views/admin/addSchedule.php?err=trExist');
     }
-    else if($display == 'Yes')
+        
+    else
     {
-        $con = mysqli_connect('localhost', 'root', '', 'webtech');
-        $sql1 ="INSERT INTO `train_schedule`(`name`, `type`, `start`, `finish`) VALUES ('{$name}','{$type}','{$start}','{$finish}')";
-        $result1 = mysqli_query($con, $sql1);
-        if($result1>0){
-            $_SESSION['msg']="Add successful<br>";
-            header('location: ../views/dashboard.php');
+        $status = trainSchedule($trainName, $fromStation,$toStation,$dateOfJourney);
+        if($status)
+        {
+            //echo"Added Successful";
+            header('location: ../../views/admin/addSchedule.php?success=yes');
         }
 
     }

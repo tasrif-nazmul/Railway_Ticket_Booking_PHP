@@ -19,11 +19,13 @@
     {
         header('location: ../../views/admin/signup.php?err=null');
     }
+    
     else if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars)
     {
         header('location: ../../views/admin/signup.php?err=invalidpass');
 
     }
+
 
     else if($password!=$ConfirmPassword)
     {

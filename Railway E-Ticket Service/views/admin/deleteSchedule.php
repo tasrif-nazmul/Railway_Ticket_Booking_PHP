@@ -1,7 +1,19 @@
 <?php 
 
 session_start();
+    if(!isset($_COOKIE['adminStatus']))
+    {
+        header('location: signin.php?err=bad_request');
+    }
 
+	if (isset($_GET['err'])) 
+    {
+		if($_GET['err'] == 'null')
+
+        echo"Must be filled all information...";
+		 
+		  
+	}
 	if (isset($_GET['delete'])) 
     {
 		$name = $_GET['delete'];
@@ -10,46 +22,76 @@ session_start();
 		 
 		  
 	}
-    if(!isset($_COOKIE['adminStatus']))
-{
-    header('location: signin.php?err=bad_request');
-}
-
 
     $con = mysqli_connect('localhost', 'root', '', 'webtech');
-    $sql = "select * from train_schedule where name='{$name}'";
+    $sql = "select * from train where trainName='{$name}'";
     $result = mysqli_query($con, $sql);
 
     $data  = mysqli_fetch_assoc($result);
 
     if (!isset($data))
     { 
-        header('location: ../views/viewSchedule.php?err=null_values');
+        header('location: viewSchedule.php?err=null_values');
     }
 ?>
 
 
 <html>
 <head>
-    <title>Delete Train</title>
-
+    <title>Delete Schedule</title>
+</head>
     <body>
+    <!-- <a href="../views/dashboard.php">Home</a>&nbsp <a href="addTrain.php">Add Train </a> &nbsp <a href="../views/viewtrain.php">Display Trains </a>
+    <br><br> -->
     <fieldset>
-    <legend>DELETE Train</legend>
-         <table>
-             
-            <form method="post" action="deleteScheduleC.php" enctype=""> 
+    <legend>Delete Train</legend>
+        <form method="post" action="../../controllers/admin/deleteScheduleC.php" enctype=""> 
+            <table>    
                 
-                <table>
-                    <tr><td>Name: <?php echo $data['name']; ?></td></tr>
-                    <tr><td>Train Type: <?php echo $data['type']; ?></td></tr>
-                    <tr><td>Start Time: <?php echo $data['start']; ?></td></tr>
-                    <tr><td>Destintion Time: <?php echo $data['finish']; ?></td></tr>
-                    
-                   
-                    <tr><td><hr></td></tr>
-                    <tr><td><input type="submit" value="Delete" ></input> </td></tr>
+                <tr>
+                    <td>
+                        Train Name:
+                    </td>
+                    <td>
+                        <?php echo $data['trainName']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        From Station:
+                    </td>
+                    <td>
+                        <?php echo $data['fromStation']; ?>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>
+                        To Station:
+                    </td>
+                    <td>
+                        <?php echo $data['toStation']; ?>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Date Of Journey:
+                    </td>
+                    <td>
+                        <?php echo $data['dateOfJourney']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Delete" name="delete">
+                    </td>
+                </tr>
 
-</form>
-</table>
+            </table>
+        </form>
+    </fieldset>
+    </body>
+</html>
+
+        

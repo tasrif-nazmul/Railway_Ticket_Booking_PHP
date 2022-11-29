@@ -1,16 +1,14 @@
 <?php
-
+require_once'../../models/trainModel.php';
  
 
 if(isset($_COOKIE['row_name'])){
 $row_name=$_COOKIE['row_name'];
 
-        $con = mysqli_connect('localhost', 'root', '', 'webtech');
-        $sql = "delete from train_schedule where name='{$row_name}'";
-        $status = mysqli_query($con, $sql);
-        
-        if($status){
-            header('location: ../views/viewSchedule.php?message=delete_successful');
+        $status = deleteSchedule($row_name);
+        if($status)
+        {
+            header('location: ../../views/admin/viewSchedule.php?message=delete_successful');
 
             setcookie('row_name',$row_name,time()-60,'/');
         }else{
@@ -18,7 +16,7 @@ $row_name=$_COOKIE['row_name'];
 
            setcookie('row_name',$row_name,time()-60,'/');
 
-           header('location: ../views/viewSchedule.php?message=delete_failed');
+           header('location: ../../views/admin/viewSchedule.php?message=delete_failed');
         }
 
 }

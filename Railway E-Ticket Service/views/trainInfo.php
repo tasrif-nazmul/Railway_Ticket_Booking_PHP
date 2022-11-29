@@ -1,18 +1,9 @@
 <?php
-include'../models/connect.php';
+require_once'../models/trainModel.php';
 if(!isset($_COOKIE['status']))
 {
     header('location: login.php?err=bad_request');
 }
-// else if(isset($_GET['err']))
-// {
-    
-//     if($_GET['err'] == 'null')
-//     {
-//         echo "Please select a train..";
-//     }
-   
-// }
 ?>
 
 <html>
@@ -36,12 +27,6 @@ if(!isset($_COOKIE['status']))
             <tr>
                 <td>
                 <input type="text" name="searchTrain">
-                    <!-- <option value>Select Train</option>                              
-                    <option value="1">SUNDARBAN EXPRESS</option>
-                    <option value="2">CHITRA EXPRESS</option>
-                    <option value="3">BENAPOLE EXPRESS</option>
-                    <option value="4">DHUMKETU EXPRESS</option>
-                </select></br> -->
                 <input type="submit" name="search">
 
                 </td>
@@ -51,12 +36,13 @@ if(!isset($_COOKIE['status']))
                 if(isset($_POST['search']))
                 {
                     $searchTrain = $_POST['searchTrain'];
-                    $sql = "select * from `traininfo` where id = '$searchTrain' or trainName = '$searchTrain'";
-                    $result = mysqli_query($con, $sql);
-                    $rowNum = mysqli_fetch_assoc($result);
-                    if($result)
-                    {
-                        if(mysqli_num_rows($result)>0)
+                    // $sql = "select * from `traininfo` where id = '$searchTrain' or trainName = '$searchTrain'";
+                    // $result = mysqli_query($con, $sql);
+                    // $rowNum = mysqli_fetch_assoc($result);
+
+                    $result = traininfo($searchTrain);
+                    $rowNum = traininfoo($searchTrain);
+                        if($result >0)
                         {
                             echo
                             '<table border="1">
@@ -80,7 +66,7 @@ if(!isset($_COOKIE['status']))
                         {
                             echo'Data not found';
                         }
-                    }
+                    
                 }
                 
                 ?>
