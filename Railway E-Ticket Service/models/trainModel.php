@@ -115,6 +115,28 @@ function scheduleExist($trainName)
             return false;
         }
 }
+function availableTrain($from,$to,$doj)
+{
+    {
+        $con = getConnection();
+        $sql = "select * from `train` where fromStation = '$from' and toStation = '$to' and dateOfJourney = '$doj'";
+        $result = mysqli_query($con, $sql);
+        return $result;
+    }
+}
+function availableTrainn($from,$to,$doj)
+{
+    {
+        $con = getConnection();
+        $sql = "select * from `train` where fromStation = '$from' and toStation = '$to' and dateOfJourney = '$doj'";
+        //echo $sql."<br>";
+        $result = mysqli_query($con, $sql);
+        $rowNum = mysqli_fetch_assoc($result);
+        return $rowNum;
+    }
+}
+
+
 
 
 ?>

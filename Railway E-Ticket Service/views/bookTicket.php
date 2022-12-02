@@ -1,48 +1,18 @@
 <?php
-// session_start();
-// $from = $_POST['from'];
-// $to = $_POST['to'];
-// $doj = $_POST['doj'];
-// session_start();
-// require_once "../models/userModel.php";
-// $trainname = $_POST['trname'];
-// $Fstation = $_POST['Fstation'];
-// $arrivalF = $_POST['arrivalF'];
-// $Tstation = $_POST['Tstation'];
-// $arrivalT = $_POST['arrivalT'];
-
-require_once "../models/userModel.php";
-
-
+require_once'../models/trainModel.php';
 if(!isset($_COOKIE['status']))
 {
     header('location: login.php?err=bad_request');
 }
-else if(isset($_GET['err']))
-{
-    
-    if($_GET['err'] == 'wrong')
-    {
-        echo "From and To station must be different";
-    }
-    else if($_GET['err'] == 'null')
-    {
-        echo "Must be filled all info..";
-    }
-    else if($_GET['err'] == 'invalid')
-    {
-        echo "Something wrong.....";
-    }
-   
-}
 ?>
+
 <html>
 <head>
     <title>Ticket Booking</title>
 </head>
 <body>
 <center>
-    <form action = "../controllers/bookTicketVal.php">
+    <form method="post">
         <table border="2px">
             <tr>
                 <td width="300px">
@@ -55,7 +25,7 @@ else if(isset($_GET['err']))
                 </td>
             </tr>
             <tr>
-            <td colspan="2">
+            <td>
                 </br>
                 From Station: 
                 <select name="from">
@@ -85,6 +55,55 @@ else if(isset($_GET['err']))
                 <input type="date" name="doj" value="" /></br>
                 <input type="submit" name="btn" value="Search Train"/>
                 </br>
+            </td>
+            <td>
+            <?php 
+                if(isset($_POST['btn']))
+                {
+                    $from = $_POST['from'];
+                    $to = $_POST['to'];
+                    $doj = $_POST['doj'];
+
+
+                    $result = availableTrain($from,$to,$doj);
+                    
+
+
+                        if($result)
+                        {
+                            echo
+                            "<table border=1>
+                                <tr>
+                                    <th>Train Name</th>
+                                    <th>From Station</th>
+                                    <th>To Station</th>
+                                    <th>Date of Journey</th>
+                                </tr>";
+                                
+                                while($rowNum  = mysqli_fetch_assoc($result))
+                                {
+                                    echo"
+                                <tr>
+                                    <td>{$rowNum['trainName']}</td>
+                                    <td>{$rowNum['fromStation']}</td>
+                                    <td>{$rowNum['toStation']}</td>
+                                    <td>{$rowNum['dateOfJourney']}</td>
+                                    <td> <a href ='selectSit.php?selectSit={$rowNum['trainName']}'>Book</a></td>
+                                    
+                                    
+                                </tr>";
+                                }
+                            echo "</table>";
+                        
+                    }
+                        else
+                        {
+                            echo'Data not found';
+                        }
+                    
+                }
+                
+                ?>
             </td>
             
             </tr>

@@ -1,22 +1,9 @@
 <?php 
 
 session_start();
-    if(!isset($_COOKIE['adminStatus']))
+	if (isset($_GET['selectSit'])) 
     {
-        header('location: signin.php?err=bad_request');
-    }
-
-	if (isset($_GET['err'])) 
-    {
-		if($_GET['err'] == 'null')
-
-        echo"Must be filled all information...";
-		 
-		  
-	}
-	if (isset($_GET['delete'])) 
-    {
-		$name = $_GET['delete'];
+		$name = $_GET['selectSit'];
 
         setcookie('row_name',$name,time()+60*60,'/');
 		 
@@ -24,26 +11,26 @@ session_start();
 	}
 
     $con = mysqli_connect('localhost', 'root', '', 'webtech');
-    $sql = "select * from traininfo where trainName='{$name}'";
+    $sql = "select * from train where trainName='{$name}'";
     $result = mysqli_query($con, $sql);
 
     $data  = mysqli_fetch_assoc($result);
 
     if (!isset($data))
     { 
-        header('location: viewtrain.php?err=null_values');
+        header('location: bookTicket.php?err=null_values');
     }
 ?>
 
 
 <html>
 <head>
-    <title>Delete Train</title>
+    <title>Select Ticket</title>
 </head>
     <body>
     <fieldset>
-    <legend>Delete Train</legend>
-        <form method="post" action="../../controllers/admin/deleteTrainVal.php" enctype=""> 
+    <legend>Select Ticket</legend>
+        <form method="post"  enctype=""> 
             <table>    
                 
                 <tr>
@@ -64,36 +51,22 @@ session_start();
                 </tr>
                 <tr>
                     <td>
-                        Start Time:
-                    </td>
-                    <td>
-                        <?php echo $data['arrivalF']; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
                         To Station:
                     </td>
                     <td>
                         <?php echo $data['toStation']; ?>
                     </td>
                 </tr>
+                
                 <tr>
                     <td>
-                        Arrival Time:
+                        Date of Journey:
                     </td>
                     <td>
-                        <?php echo $data['arrivalT']; ?>
+                        <?php echo $data['dateOfJourney']; ?>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        Off Day:
-                    </td>
-                    <td>
-                        <?php echo $data['Offday']; ?>
-                    </td>
-                </tr>
+                
                 <tr>
                     <td colspan="2">
                         <input type="submit" value="Delete" name="delete">

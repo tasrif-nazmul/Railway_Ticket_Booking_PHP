@@ -1,11 +1,8 @@
 <?php
     session_start();
-    //require_once "../models/userModel.php";
-    $trainname = $_POST['trname'];
-    $Fstation = $_POST['Fstation'];
-    $arrivalF = $_POST['arrivalF'];
-    $Tstation = $_POST['Tstation'];
-    $arrivalT = $_POST['arrivalT'];
+    $from = $_POST['from'];
+    $to = $_POST['to'];
+    $doj = $_POST['doj'];
 
     if($from == "" || $to == "" || $doj == "")
     {
@@ -15,10 +12,7 @@
     {
         header('location: ../views/bookTicket.php?err=wrong');
     }
-    else
-    {
-        header('location: ../views/availableTrain.php');
-        
-    }
+
+    
     
     ?>

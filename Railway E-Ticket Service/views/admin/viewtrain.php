@@ -52,7 +52,7 @@ if(!isset($_COOKIE['adminStatus']))
                     <td>{$data['arrivalT']}</td>   
                     <td>{$data['Offday']}</td>   
                     <td> <a href ='editTrain.php?edit={$data['trainName']}'>Edit</a></td> 
-                    <td> <a href ='deleteTrain.php?delete={$data['trainName']}'>Delete</a></td>            
+                    <td> <a href ='deleteTrain.php?delete={$data['trainName']}'>Delete</a></td>       
                 </tr>";
     }
 
@@ -61,7 +61,7 @@ if(!isset($_COOKIE['adminStatus']))
 </table>
             <tr>
             <br>
-            <td> <button onClick="window.location.href='dashboard.php';">  
+            <td> <button onClick="window.location.href='dashboard.php';"> 
                 Back  
                 </button> </td><br>
                 <td colspan=2 align="center">

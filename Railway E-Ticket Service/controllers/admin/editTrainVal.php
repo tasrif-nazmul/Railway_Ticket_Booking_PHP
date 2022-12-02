@@ -21,15 +21,6 @@ if($trainName=="" || $fromStation =="" || $startTime == ""|| $toStation=="" || $
 
 else
 {
-
-
-
-        // $con = mysqli_connect('localhost', 'root', '', 'webtech');
-        // $sql = "update traininfo set trainName='{$trainName}', fromStation='{$fromStation}',arrivalF='{$startTime}', toStation='{$toStation}',arrivalT='{$arrivalTime}', offday='{$offday}' where trainName='{$row_name}'";
-        // $status = mysqli_query($con, $sql);
-
-        //$updateTrain = ['trainName'=>$trainName, 'fromStation'=>$fromStation, 'arrivalF'=>$startTime,'toStation'=>$toStation,'arrivalT'=>$arrivalTime,'offday'=>$offday,];
-
         $status = updateTrain($trainName,$fromStation,$startTime, $toStation,$arrivalTime,$offday,$row_name);
         if($status)
         {
