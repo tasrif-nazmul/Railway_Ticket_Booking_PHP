@@ -1,0 +1,156 @@
+
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #555;
+	background: #ecf0f3;
+}
+.login-div {
+    width: 730px;
+    height: 760px;
+    padding: 50px 35px 35px 35px;
+    border-radius: 40px;
+    background: #ecf0f3;
+    box-shadow: 10px 10px 20px #cbced1, -10px -10px 20px #ffffff;
+}
+.logo {
+	background: url("../../trainLogo.png");
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin: 0 auto;
+	box-shadow: 0 0 2px #5f5f5f, 0 0 5px #ecf0f3, 8px 8px 15px #a7aaaf, -8px -8px 15px #ffffff;
+	background-size: cover;
+}
+.title {
+	text-align: center;
+	font-size: 28px;
+	padding-top: 24px;
+	letter-spacing: 0.5px;
+}
+.sub-title {
+    text-align: center;
+    font-size: 17px;
+    font-family: auto;
+    padding-top: 7px;
+    letter-spacing: 0px;
+}
+.fields {
+	width: 100%;
+	padding: 60px 5px 5px 5px;
+}
+.fields input {
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 18px;
+	color: #555;
+	padding: 18px 10px 18px 1px;
+}
+
+.namee {
+	float: left;
+	margin-bottom: 30px;
+	border-radius: 25px;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff
+}
+.emaill {
+	float: right;
+	margin-bottom: 30px;
+	border-radius: 25px;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff
+}
+.usernamee {
+	float: left;
+	margin-bottom: 30px;
+	border-radius: 25px;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff
+}
+.password {
+	float: right;
+	margin-bottom: 30px;
+	border-radius: 25px;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff
+}
+.confirmPassword {
+	float: left;
+	margin-bottom: 30px;
+	border-radius: 25px;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff
+}
+.dateOfBirth {
+	float: right;
+	width: 293px;
+	margin-bottom: 30px;
+	border-radius: 25px;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff
+}
+input[type="date"]
+{
+	padding-left:65px;
+}
+.gender {
+	padding:20px;
+	float: left;
+	width: 291px;
+	height: 63px;
+	margin-bottom: 30px;
+	border-radius: 25px;
+	box-shadow:inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff
+}
+
+.namee ::placeholder,
+.emaill ::placeholder,
+.usernamee ::placeholder,
+.password ::placeholder,
+.confirmPassword {
+    color: #999;
+}
+.fields svg {
+	height: 22px;
+	margin: 0 10px -3px 25px;
+}
+.emailSvg {
+	height: 50px;
+	margin: 0 10px -3px 25px;
+}
+.signin-button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	height: 60px;
+	border-radius: 30px;
+	font-size: 20px;
+	font-weight: 700;
+	font-family: 'Lato', sans-serif;
+	color: #fff;
+	text-align: center;
+	background: #fc5130;
+	box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+}
+.signin-button:hover {
+	background: #000;
+}
+.signin-button:active {
+	background: #ff843c;
+}
+.link {
+	padding: 20px;
+	text-align: center;
+}
+.link a {
+	text-decoration: none;
+	color: #aaa;
+	font-size: 15px;
+}

@@ -23,96 +23,76 @@ if(isset($_GET['err']))
 
 
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Admin Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regestration</title>
+    <link rel="stylesheet" href="../../assects/css/admin/signup.css">
 </head>
 <body>
-<center>
-<form action="../../controllers/admin/signupVal.php" method ="post">
-        <table border="2px">
-            <tr>
-                <td width="300px">
-                    <img src="../assects/train.jpg" width="30px">Railway E-ticket Service
-                </td>
-                <td align="left">
-                    <a href="">Home</a> |
-                    <a href="signin.php">Login</a> |
-                    <a href="">Registration</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan=2 align="center">
-                    <fieldset>
-                        <table>
-                            <tr>
-                                <td align="center" colspan="2" id="firstTr"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Name 
-                                </td>
-                                <td>
-                                    <input type="text" name="name"><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Email
-                                </td>
-                                <td>
-                                    <input type="email" name="email"><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Username 
-                                </td>
-                                <td>
-                                    <input type="text" name="username"><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Password 
-                                </td>
-                                <td>
-                                    <input type="password" name="password" id="password" onkeyup="passCheck()"><br>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Confirm Password
-                                </td>
-                                <td>
-                                    <input type="password" name="ConfirmPassword"><br>
-                                </td>
-                            </tr>
-                        </table>
-                        <fieldset>
-                            <legend align="center">Gender</legend>
-                            <input type="radio" name="gender" value="male"/> Male 
-                            <input type="radio" name="gender" value="female"/> Female 
-                            <input type="radio" name="gender" value="other"/> Other
-                        </fieldset>
-                        
-                        <fieldset>
-                            <legend  align="center">Date of Birth</legend>
-                            <input type="date" name="dob"> 
-                        </fieldset>
-                        
-                        <br>
-                        <input type="submit" name="btn" value="Submit"/>
-                        <input type="reset" name="reset" placeholder="Reset">
-                    </fieldset>
-                </td>
-            </tr>
-            <tr>
-                <td colspan=2 align="center">
-                Presented by: Nazmul, Jannat, Aditya, Uma
-                </td>
-            </tr>
-        </table>
+<form action="../../controllers/admin/signupVal.php" method="post">
+    <div class="login-div">
+        <div class="logo"></div>
+        <div class="title">Railway E-Ticket</div>
+        <div class="sub-title">Create Account</div>
+        <div class="fields">
+            <div class="namee">
+                <svg fill='#999' class="svg-icon" viewBox="0 0 20 20">
+                    <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
+                </svg>
+                <input  type="text" name="name" class="user-input" placeholder="Full name">
+            </div>
+
+            <div class="emaill">
+                <svg fill='#999' class="svg-icon" viewBox="0 0 20 20">
+                    <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
+                </svg>
+                <input  type="email" name="email" class="user-input" placeholder="email">
+            </div>
+            <br>
+
+            <div class="usernamee">
+                <svg fill='#999' class="svg-icon" viewBox="0 0 20 20">
+                    <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
+                </svg>
+                <input  type="username" name="username" class="user-input" placeholder="username">
+            </div>
+            
+            <div class="password">
+                <svg fill='#999' class="svg-icon" viewBox="0 0 20 20">
+                    <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
+                </svg>
+                <input type="password" name="password" class="pass-input" placeholder="password">
+            </div><br>
+            <div class="confirmPassword">
+                <svg fill='#999' class="svg-icon" viewBox="0 0 20 20">
+                    <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
+                </svg>
+                <input type="password" name="ConfirmPassword" class="pass-input" placeholder="re-type password">
+            </div>
+
+            <div class="dateOfBirth">
+                <input type="date" name="dob">
+            </div><br>
+
+            <div class="gender">
+                <input type="radio" name="gender" id="male" value="male"/>
+                    <level for="male">Male</level>
+                <input type="radio" name="gender" id="female" value="female"/>
+                    <level for="female">Female</level>
+                <input type="radio" name="gender" id="other" value="other"/>
+                    <level for="other">Other</level>
+            </div>
+           
+        </div>
+        <button class="signin-button">Login</button>
+        <div class="link">
+            <a href="#">Forgot password?</a> or <a href="reg.php">Sign Up</a>
+        </div>
+    </div>
+
         <script>
             function passCheck()
             {
@@ -148,6 +128,5 @@ if(isset($_GET['err']))
             }
         </script>
     </form>
-</center>
 </body>
 </html>

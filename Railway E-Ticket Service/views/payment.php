@@ -5,25 +5,24 @@ if(!isset($_COOKIE['status']))
 {
     header('location: login.php?err=bad_request');
 }
-	if (isset($_GET['selectSit'])) 
-    {
-		$trainname = $_GET['selectSit'];
-        $_SESSION['trainname']=$trainname;
+if (isset($_SESSION['trainname'])) 
+{
+    $trainname = $_SESSION['trainname']; 
+}
 
-        setcookie('row_name',$trainname,time()+60*60,'/');	  
-	}
+$con = mysqli_connect('localhost', 'root', '', 'webtech');
+$sql = "select * from train where trainName='{$trainname}'";
+$result = mysqli_query($con, $sql);
 
-    $con = mysqli_connect('localhost', 'root', '', 'webtech');
-    $sql = "select * from train where trainName='{$trainname}'";
-    $result = mysqli_query($con, $sql);
+$data  = mysqli_fetch_assoc($result);
+$traindata =['nothing'=>'nothing'];
+$traindata =['trainname'=>$data['trainName'], 'fromStation'=>$data['fromStation'], 'toStation'=>$data['toStation'], 'dateOfJourney'=>$data['dateOfJourney'] ];
+$_SESSION['traindata']=$traindata;
 
-
-    $data  = mysqli_fetch_assoc($result);
-
-    if (!isset($data))
-    { 
-        header('location: bookTicket.php?err=null_values');
-    }
+if (!isset($data))
+{ 
+    header('location: bookTicket.php?err=null_values');
+}
 ?>
 
 
@@ -33,8 +32,8 @@ if(!isset($_COOKIE['status']))
 </head>
     <body>
     <fieldset>
-    <legend>Select Ticket</legend>
-        <form method="post"  enctype="" action="payment.php"> 
+    <legend>Payment</legend>
+        <form method="post"  enctype="" action="../controllers/paymentVal.php"> 
             <table>    
                 
                 <tr>
@@ -50,7 +49,7 @@ if(!isset($_COOKIE['status']))
                         From Station:
                     </td>
                     <td>
-                        <?php echo $data['fromStation']; ?>
+                        <?php echo $data['fromStation'];?>
                     </td>
                 </tr>
                 <tr>
@@ -73,8 +72,8 @@ if(!isset($_COOKIE['status']))
                 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Book" name="book">
-                        <a href="bookTicket.php">Back</a>
+                        <input type="submit" value="Payment" name="payment">
+                        <a href="bookTicket.php">Cancel</a>
                     </td>
                 </tr>
 

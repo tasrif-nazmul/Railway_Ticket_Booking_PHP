@@ -29,6 +29,17 @@ function addTrain($train)
         return $status;
     }
 }
+function bookTicket($username, $traindata)
+{
+    {
+        $con = getConnection();
+        $sql = "insert into ticketbook values('','{$username}','{$traindata['trainname']}', '{$traindata['fromStation']}', '{$traindata['toStation']}', '{$traindata['dateOfJourney']}')";
+        echo $sql. "<br>";
+        $status = mysqli_query($con, $sql);
+        //$count = mysqli_num_rows($status);
+        return $status;
+    }
+}
 function deleteTrain($row_name)
 {
     {
