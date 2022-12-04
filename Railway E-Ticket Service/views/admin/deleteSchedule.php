@@ -41,8 +41,6 @@ session_start();
     <title>Delete Schedule</title>
 </head>
     <body>
-    <!-- <a href="../views/dashboard.php">Home</a>&nbsp <a href="addTrain.php">Add Train </a> &nbsp <a href="../views/viewtrain.php">Display Trains </a>
-    <br><br> -->
     <fieldset>
     <legend>Delete Train</legend>
         <form method="post" action="../../controllers/admin/deleteScheduleC.php" enctype=""> 
@@ -64,6 +62,14 @@ session_start();
                         <?php echo $data['fromStation']; ?>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        Start Time:
+                    </td>
+                    <td>
+                        <?php echo $data['startTime']; ?>
+                    </td>
+                </tr>
 
                 <tr>
                     <td>
@@ -71,6 +77,14 @@ session_start();
                     </td>
                     <td>
                         <?php echo $data['toStation']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Arrival Time:
+                    </td>
+                    <td>
+                        <?php echo $data['arrivalTime']; ?>
                     </td>
                 </tr>
                 

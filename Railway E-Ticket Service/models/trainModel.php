@@ -33,7 +33,7 @@ function bookTicket($username, $traindata)
 {
     {
         $con = getConnection();
-        $sql = "insert into ticketbook values('','{$username}','{$traindata['trainname']}', '{$traindata['fromStation']}', '{$traindata['toStation']}', '{$traindata['dateOfJourney']}')";
+        $sql = "insert into ticketbook values('','{$username}','{$traindata['trainname']}', '{$traindata['fromStation']}','{$traindata['startTime']}', '{$traindata['toStation']}','{$traindata['arrivalTime']}', '{$traindata['dateOfJourney']}')";
         echo $sql. "<br>";
         $status = mysqli_query($con, $sql);
         //$count = mysqli_num_rows($status);
@@ -67,11 +67,11 @@ function updateTrain($trainName,$fromStation,$startTime, $toStation,$arrivalTime
         return $status;
     }
 }
-function updateSchedule($trainName,$fromStation,$toStation,$doj,$row_name)
+function updateSchedule($trainName,$fromStation,$startTime,$toStation,$arrivalTime,$doj,$row_name)
 {
     {
         $con = getConnection();
-        $sql = "update train set trainName='{$trainName}', fromStation='{$fromStation}', toStation='{$toStation}', dateOfJourney='{$doj}' where trainName='{$row_name}'";
+        $sql = "update train set trainName='{$trainName}', fromStation='{$fromStation}',startTime='{$startTime}', toStation='{$toStation}',arrivalTime='{$arrivalTime}', dateOfJourney='{$doj}' where trainName='{$row_name}'";
         $status = mysqli_query($con, $sql);
         return $status;
     }
@@ -97,11 +97,11 @@ function traininfoo($searchTrain)
         return $rowNum;
     }
 }
-function trainSchedule($trainName, $fromStation,$toStation,$dateOfJourney)
+function trainSchedule($trainName, $fromStation,$startTime,$toStation,$arrivalTime,$dateOfJourney)
 {
     {
         $con = getConnection();
-        $sql = "insert into train values('','$trainName','$fromStation','$toStation','$dateOfJourney')";
+        $sql = "insert into train values('','$trainName','$fromStation','$startTime','$toStation','$arrivalTime','$dateOfJourney')";
         $status = mysqli_query($con, $sql);
         //$count = mysqli_num_rows($status);
         return $status;

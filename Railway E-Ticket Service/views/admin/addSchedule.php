@@ -6,6 +6,10 @@
         {
             echo"Must be filled all info....";
         }
+        if($_GET['err'] == 'same')
+        {
+            echo"From and To station must be different....";
+        }
         if($_GET['err'] == 'trExist')
         {
             echo"This Train is already exist....";
@@ -15,7 +19,7 @@
     {
         if($_GET['success'] == 'yes')
         {
-            echo"Train Added Successfully";
+            echo"Schedule Added Successfully";
         }
     }
     if(!isset($_COOKIE['adminStatus']))
@@ -46,20 +50,51 @@
             <td colspan=2 align="center">
                     <fieldset>
                         <table>
-                        <tr>
+                            <tr>
                                 <td>
                                     Train Name 
                                 </td>
                                 <td>
-                                <input type="text" name = "trainName">
+                                <select name="trainName">
+                                        <option value>Select train name</option>
+                                        <option value="Chitra Exress">Chitra Exress</option>
+                                        <option value="Sundarban Exress">Sundarban Exress</option>
+                                        <option value="Rajshahi Exress">Rajshahi Exress</option>
+                                        <option value="Rangpur Exress">Rangpur Exress</option>
+                                        <option value="Sylhet Exress">Sylhet Exress</option>
+                                        <option value="Chottogram Exress">Chottogram Exress</option>
+                                        <option value="Dhumketu Exress">Dhumketu Exress</option>
+                                        <option value="Barishal Exress">Barishal Exress</option>
+                                        <option value="Dhaka Exress">Dhaka Exress</option>
+                                        <option value="Maymensingh Exress">Maymensingh Exress</option>
+                                        <option value="Agarosindur Exress">Agarosindur Exress</option>
+                                    </select></br>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    From Sattion
+                                    From Station
                                 </td>
                                 <td>
-                                    <input type="text" name="fromStation"><br>
+                                    <select name="fromStation">
+                                        <option value>Select From Station</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Sylhet">Sylhet</option>
+                                        <option value="Khulna">Khulna</option>
+                                        <option value="Chottogram">Chottogram</option>
+                                        <option value="Barishal">Barishal</option>
+                                        <option value="Rangpur">Rangpur</option>
+                                        <option value="Maymensingh">Maymensingh</option>
+                                        <option value="Rajshahi">Rajshahi</option>
+                                    </select></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Start time
+                                </td>
+                                <td>
+                                    <input type="time" name="startTime"><br>
                                 </td>
                             </tr>
                             
@@ -68,7 +103,25 @@
                                     To Station
                                 </td>
                                 <td>
-                                    <input type="text" name="toStation"><br>
+                                    <select name="toStation">
+                                        <option value>Select To Station</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                        <option value="Sylhet">Sylhet</option>
+                                        <option value="Khulna">Khulna</option>
+                                        <option value="Chottogram">Chottogram</option>
+                                        <option value="Barishal">Barishal</option>
+                                        <option value="Rangpur">Rangpur</option>
+                                        <option value="Maymensingh">Maymensingh</option>
+                                        <option value="Rajshahi">Rajshahi</option>
+                                    </select></br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Arrival time
+                                </td>
+                                <td>
+                                    <input type="time" name="arrivalTime"><br>
                                 </td>
                             </tr>
                           

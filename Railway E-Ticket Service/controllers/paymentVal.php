@@ -11,7 +11,7 @@ $result = mysqli_query($con, $sql);
 
 $data  = mysqli_fetch_assoc($result);
 $traindata =['nothing'=>'nothing'];
-$traindata =['trainname'=>$data['trainName'], 'fromStation'=>$data['fromStation'], 'toStation'=>$data['toStation'], 'dateOfJourney'=>$data['dateOfJourney'] ];
+$traindata =['trainname'=>$data['trainName'], 'fromStation'=>$data['fromStation'],'startTime'=>$data['startTime'], 'toStation'=>$data['toStation'],'arrivalTime'=>$data['arrivalTime'], 'dateOfJourney'=>$data['dateOfJourney'] ];
 
 require_once "../models/trainModel.php";
 $username = $_COOKIE['username'];

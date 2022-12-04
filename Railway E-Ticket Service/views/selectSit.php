@@ -39,7 +39,7 @@ if(!isset($_COOKIE['status']))
                 
                 <tr>
                     <td>
-                        Train Name:
+                        Train Name
                     </td>
                     <td>
                         <?php echo $data['trainName']; ?>
@@ -47,10 +47,18 @@ if(!isset($_COOKIE['status']))
                 </tr>
                 <tr>
                     <td>
-                        From Station:
+                        From Station
                     </td>
                     <td>
                         <?php echo $data['fromStation']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Start Time
+                    </td>
+                    <td>
+                        <?php echo $data['startTime']; ?>
                     </td>
                 </tr>
                 <tr>
@@ -61,10 +69,18 @@ if(!isset($_COOKIE['status']))
                         <?php echo $data['toStation']; ?>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        Arrival Time
+                    </td>
+                    <td>
+                        <?php echo $data['arrivalTime']; ?>
+                    </td>
+                </tr>
                 
                 <tr>
                     <td>
-                        Date of Journey:
+                        Date of Journey
                     </td>
                     <td>
                         <?php echo $data['dateOfJourney']; ?>

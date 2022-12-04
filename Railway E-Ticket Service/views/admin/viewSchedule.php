@@ -35,7 +35,9 @@ if(!isset($_COOKIE['adminStatus']))
             <tr>
                 <th>Train Name</th>
                 <th>From Station</th>
+                <th>Start Time</th>
                 <th>To station</th>
+                <th>Arrival Time</th>
                 <th>Date Of Journey</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -45,7 +47,9 @@ if(!isset($_COOKIE['adminStatus']))
         echo    "<tr>
                     <td>{$data['trainName']}</td>        
                     <td>{$data['fromStation']}</td>       
+                    <td>{$data['startTime']}</td>       
                     <td>{$data['toStation']}</td>  
+                    <td>{$data['arrivalTime']}</td>  
                     <td>{$data['dateOfJourney']}</td>   
                     <td> <a href ='editSchedule.php?edit={$data['trainName']}'>Edit</a></td> 
                     <td> <a href ='deleteSchedule.php?delete={$data['trainName']}'>Delete</a></td>            

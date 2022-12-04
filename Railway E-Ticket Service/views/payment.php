@@ -54,10 +54,26 @@ if (!isset($data))
                 </tr>
                 <tr>
                     <td>
+                        Start Time:
+                    </td>
+                    <td>
+                        <?php echo $data['startTime'];?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         To Station:
                     </td>
                     <td>
                         <?php echo $data['toStation']; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Arrival Time:
+                    </td>
+                    <td>
+                        <?php echo $data['arrivalTime']; ?>
                     </td>
                 </tr>
                 
