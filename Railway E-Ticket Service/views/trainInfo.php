@@ -1,5 +1,5 @@
 <?php
-require_once'../models/trainModel.php';
+//require_once'../models/trainModel.php';
 if(!isset($_COOKIE['status']))
 {
     header('location: login.php?err=bad_request');
@@ -12,7 +12,7 @@ if(!isset($_COOKIE['status']))
 </head>
 <body>
 <center>
-    <form method="post">
+ 
         <table border="2px">
             <tr>
                 <td width="300px">
@@ -26,50 +26,14 @@ if(!isset($_COOKIE['status']))
             </tr>
             <tr>
                 <td>
-                <input type="text" name="searchTrain">
-                <input type="submit" name="search">
+                <input type="text" name="typedText" id="typedText" onkeyup='liveSearchAJAX()'>
+                <input type="submit" name="search" id="search" onclick='liveSearchAJAX()'>
 
                 </td>
                 <td>
+                    <h3 id="info"></h3>
             
-                <?php 
-                if(isset($_POST['search']))
-                {
-                    $searchTrain = $_POST['searchTrain'];
-                    // $sql = "select * from `traininfo` where id = '$searchTrain' or trainName = '$searchTrain'";
-                    // $result = mysqli_query($con, $sql);
-                    // $rowNum = mysqli_fetch_assoc($result);
-
-                    $result = traininfo($searchTrain);
-                    $rowNum = traininfoo($searchTrain);
-                        if($result >0)
-                        {
-                            echo
-                            '<table border="1">
-                                <tr>
-                                    <th>Train Name</th>
-                                    <th>From Station</th>
-                                    <th>Arrival Time</th>
-                                    <th>To Station</th>
-                                    <th>Arrival Time</th>
-                                </tr>
-                                <tr>
-                                    <td>'.$rowNum['trainName'].'</td>
-                                    <td>'.$rowNum['fromStation'].'</td>
-                                    <td>'.$rowNum['arrivalF'].'</td>
-                                    <td>'.$rowNum['toStation'].'</td>
-                                    <td>'.$rowNum['arrivalT'].'</td>
-                                </tr>
-                            </table>';
-                        }
-                        else
-                        {
-                            echo'Data not found';
-                        }
-                    
-                }
                 
-                ?>
                 <td>
             </tr>
             <tr>
@@ -78,7 +42,34 @@ if(!isset($_COOKIE['status']))
                 </td>
             </tr>
         </table>
-    </form>
+  
 </center>
+
+<script>
+ 
+
+    function liveSearchAJAX()
+    {  
+    let typedText = document.getElementById("typedText").value;
+   // let search = document.getElementById("search").value;
+    let xhttp = new XMLHttpRequest();
+
+    xhttp.open('POST', '../controllers/trainInfoVal.php', true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send('typedText='+typedText);
+
+    xhttp.onreadystatechange = function()
+    {
+        
+        if(this.readyState == 4 && this.status == 200)
+        {    
+                //alert(this.responseText);
+            document.getElementsByTagName("h3")[0].innerHTML = this.responseText;
+        }
+        
+    }
+}
+</script>
+
 </body>
 </html>

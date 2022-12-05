@@ -24,11 +24,11 @@ if(!isset($_COOKIE['adminStatus']))
                 </td>
             </tr>
             <?php
-    $con = mysqli_connect('localhost', 'root','','webtech');
-    $sql = "select * from traininfo";
-    $result = mysqli_query($con, $sql);
-    // $data = mysqli_fetch_assoc($result);
-    // print_r($data);
+                $con = mysqli_connect('localhost', 'root','','webtech');
+                $sql = "select * from traininfo";
+                $result = mysqli_query($con, $sql);
+                // $data = mysqli_fetch_assoc($result);
+                // print_r($data);
 
     echo "<table border=1> 
             
