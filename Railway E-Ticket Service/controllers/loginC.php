@@ -10,6 +10,8 @@ if($username == "" || $password == "")
     header('location: ../views/login.php?err=null');
 }
 
+else{
+
 
 
     $user = ['username'=>$username, 'password'=>$password];
@@ -27,5 +29,5 @@ if($username == "" || $password == "")
         header('location: ../views/login.php?err=invalid');
     }
 
-
+}
 ?>

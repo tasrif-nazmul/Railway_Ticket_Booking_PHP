@@ -1,81 +1,28 @@
 <?php
-session_start();
-$username = $_POST['username'];
-$email = $_POST['email'];
-$category = $_POST['category'];
+require_once'../models/db.php';
 
+$forget = $_POST['forget'];
+$search = $_POST['search'];
 
-if($category == "user")
+if($forget == "")
 {
+    header('location: ../views/forgetPass.php?err=null');
+}
+else
+{
+    $con = getConnection();
+    $sql = "select Password from users where Username='$forget'";
+    $result = mysqli_query($con, $sql);
+    $data = mysqli_fetch_assoc($result);
 
-    $file = fopen('user.txt', 'r');
-
-    $status = false;
-
-    while(!feof($file))
-    {
-
-        $data = fgets($file);
-
-        $user = explode("|", $data);
-
-        //print_r($user);
-
-        if(trim($user[1]) == $email && trim($user[2]) == $username)
-        {
-
-            //header('location: showPass.php');
-            //echo $user[3];
-            $_SESSION['password'] = $user[3];
-            $status = true;
-            header('location: showPass.php');
-
-            break;
-        }
-
-    }
-    if($status==false)
-    {
-        header('location: forgottenPass.php?err=invalid');
-    }
-
-
+    echo"
+    <table>
+    <tr>
+    <td>{$data['Password']}</td>
+    <tr>
+    </table>
+    ";
 }
 
-if($category == "admin")
-{
 
-    $file = fopen('admin.txt', 'r');
-
-    $status = false;
-
-    while(!feof($file))
-    {
-
-        $data = fgets($file);
-
-        $admin = explode("|", $data);
-
-        //print_r($user);
-
-        if(trim($admin[1]) == $email && trim($admin[2]) == $username)
-        {
-
-            //header('location: showPass.php');
-            //echo $user[3];
-            $_SESSION['password'] = $admin[3];
-            $status = true;
-            header('location: showPass.php');
-
-            break;
-        }
-
-    }
-    if($status==false)
-    {
-        header('location: forgottenPass.php?err=invalid');
-    }
-
-
-}
 ?>
