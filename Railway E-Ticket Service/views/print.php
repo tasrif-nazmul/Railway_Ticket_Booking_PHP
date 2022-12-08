@@ -7,9 +7,9 @@
     }
 
 	
-	if (isset($_GET['cancel'])) 
+	if (isset($_GET['print'])) 
     {
-		$name = $_GET['cancel'];
+		$name = $_GET['print'];
 
         setcookie('row_name',$name,time()+60*60,'/');
 		 
@@ -24,7 +24,7 @@
 
     if (!isset($data))
     { 
-        header('location: cancelTicket.php?err=null_values');
+        header('location: viewTicket.php?err=null_values');
     }
 ?>
 
@@ -35,8 +35,8 @@
 </head>
     <body>
     <fieldset>
-    <legend>Cancel Ticket</legend>
-        <form method="post" action="../controllers/cancelVal.php" enctype=""> 
+    <legend>Print Ticket</legend>
+        <form> 
             <table>    
                 
                 <tr>
@@ -97,7 +97,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" value="Cancel Ticket" name="cancel">
+                        <input type="submit" value="Print Ticket" name="Print" onclick="window.print()">
                     </td>
                 </tr>
 

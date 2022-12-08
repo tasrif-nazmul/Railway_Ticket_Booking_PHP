@@ -40,10 +40,19 @@ function bookTicket($username, $traindata)
         return $status;
     }
 }
+function cancelTicket($row_name)
+{
+    {
+        $con = getConnection();
+        $sql = "delete from ticketbook where id='{$row_name}'";
+        $status = mysqli_query($con, $sql);
+        return $status;
+    }
+}
 function deleteTrain($row_name)
 {
     {
-        $con = mysqli_connect('localhost', 'root', '', 'webtech');
+        $con = getConnection();
         $sql = "delete from traininfo where trainName='{$row_name}'";
         $status = mysqli_query($con, $sql);
         return $status;
@@ -52,7 +61,7 @@ function deleteTrain($row_name)
 function deleteSchedule($row_name)
 {
     {
-        $con = mysqli_connect('localhost', 'root', '', 'webtech');
+        $con = getConnection();
         $sql = "delete from train where trainName='{$row_name}'";
         $status = mysqli_query($con, $sql);
         return $status;

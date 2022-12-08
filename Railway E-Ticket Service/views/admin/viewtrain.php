@@ -59,17 +59,6 @@ if(!isset($_COOKIE['adminStatus']))
     echo "</table>";
 ?>
 </table>
-            <tr>
-            <br>
-            <td> <button onClick="window.location.href='dashboard.php';"> 
-                Back  
-                </button> </td><br>
-                <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
-                </td>
-            </tr>
-        </table>
-    </form>
 </center>
 </body>
 </html>

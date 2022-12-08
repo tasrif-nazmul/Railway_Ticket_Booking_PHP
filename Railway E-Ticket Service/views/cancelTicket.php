@@ -32,39 +32,32 @@ if(!isset($_COOKIE['status']))
     echo "<table border=1> 
             
             <tr>
+                <th>Ticket No</th>
                 <th>Train Name</th>
                 <th>From Station</th>
                 <th>Start Time</th>
                 <th>To station</th>
                 <th>Arrival Time</th>
                 <th>Date of Journey</th>
+                <th>Cancel</th>
             </tr>";
 
     while($data  = mysqli_fetch_assoc($result)){
         echo    "<tr>
+                    <td>{$data['id']}</td>        
                     <td>{$data['trainName']}</td>        
                     <td>{$data['fromStation']}</td>
                     <td>{$data['startTime']}</td>        
                     <td>{$data['toStation']}</td>   
                     <td>{$data['arrivalTime']}</td>   
-                    <td>{$data['dateOfJourney']}</td>    
+                    <td>{$data['dateOfJourney']}</td>
+                    <td> <a href ='cancel.php?cancel={$data['id']}'>Cancel</a></td>     
                 </tr>";
     }
 
     echo "</table>";
 ?>
 </table>
-            <tr>
-            <br>
-            <td> <button onClick="window.location.href='dashboard.php';"> 
-                Back  
-                </button> </td><br>
-                <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
-                </td>
-            </tr>
-        </table>
-    </form>
 </center>
 </body>
 </html>
