@@ -27,6 +27,7 @@
         {
             //echo"Added Successful";
             header('location: ../../views/admin/addTr.php?success=yes');
+            
         }
 
     }

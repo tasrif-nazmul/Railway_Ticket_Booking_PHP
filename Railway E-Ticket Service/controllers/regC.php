@@ -10,19 +10,9 @@
     $dob = $_POST['dob'];
 
 
-    $number = preg_match('@[0-9]@', $password);
-    $uppercase = preg_match('@[A-Z]@', $password);
-    $lowercase = preg_match('@[a-z]@', $password);
-    $specialChars = preg_match('@[^\w]@', $password);
-
     if($name == "" || $email == "" || $username == "" || $password == "" || $ConfirmPassword == "" || $gender == "" || $dob == "")
     {
         header('location: ../views/reg.php?err=null');
-    }
-    else if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars)
-    {
-        header('location: ../views/reg.php?err=invalidpass');
-
     }
 
     else if($password!=$ConfirmPassword)

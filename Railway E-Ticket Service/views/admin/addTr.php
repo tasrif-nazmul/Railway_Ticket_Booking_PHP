@@ -1,27 +1,8 @@
 <?php
-    session_start();
-    if(isset($_GET['err']))
-    {
-        if($_GET['err'] == 'null')
-        {
-            echo"Must be filled all info....";
-        }
-        if($_GET['err'] == 'trExist')
-        {
-            echo"This Train is already exist....";
-        }
-    }
-    if(isset($_GET['success']))
-    {
-        if($_GET['success'] == 'yes')
-        {
-            echo"Train Added Successfully";
-        }
-    }
     if(!isset($_COOKIE['adminStatus']))
-{
-    header('location: signin.php?err=bad_request');
-}
+    {
+        header('location: signin.php?err=bad_request');
+    }
 ?>
 
 <html>
@@ -42,10 +23,42 @@
                     <a href="`../reg.php">Registration</a>
                 </td>
             </tr>
+            
             <tr>
             <td colspan=2 align="center">
                     <fieldset>
                         <table>
+                        <tr>
+                            <td>
+                            <h4>
+                                <?php
+                                    session_start();
+                                    if(isset($_GET['err']))
+                                    {
+                                        if($_GET['err'] == 'null')
+                                        {
+                                            echo"Must be filled all info....";
+                                            //echo'<script>alert("Must be filled all info");</script>';
+                                        }
+                                        if($_GET['err'] == 'trExist')
+                                        {
+                                            echo"This Train is already exist....";
+                                            //echo'<script>alert("This Train is aready exist");</script>';
+                                        }
+                                    }
+                                    if(isset($_GET['success']))
+                                    {
+                                        if($_GET['success'] == 'yes')
+                                        {
+                                            //echo"Train Added Successfully";
+                                            echo'<script>alert("Train added successfully");</script>';
+                                        }
+                                    }
+                                
+                                ?>
+                            </h4>
+                            </td>
+                        </tr>
                         <tr>
                                 <td>
                                     Train Name 
@@ -95,7 +108,16 @@
                                     Offday
                                 </td>
                                 <td>
-                                    <input type="day" name="offday"><br>
+                                    <select name="offday">
+                                        <option value>Day?</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                    </select>
                                 
                                 </td>
                             </tr>
@@ -113,7 +135,7 @@
             </tr>
             <tr>
                 <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
+                    @copyright 2022
                 </td>
             </tr>
         </table>

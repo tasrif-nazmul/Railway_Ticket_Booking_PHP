@@ -17,12 +17,22 @@
             <div class="error">
                     <?php
 
-                    if (isset($_GET['err'])) {
-                        if ($_GET['err'] == 'null') {
+                    if (isset($_GET['err'])) 
+                    {
+                        if ($_GET['err'] == 'null') 
+                        {
                             echo "Must be filled all info..";
-                        } else if ($_GET['err'] == 'invalid') {
+                        } 
+                        else if ($_GET['err'] == 'invalid') 
+                        {
                             echo "Invalid Username or Password...";
-                        } else if ($_GET['err'] == 'bad_request') {
+                        } 
+                        else if ($_GET['err'] == 'success') 
+                        {
+                            echo "Password reset successfully";
+                        } 
+                        else if ($_GET['err'] == 'bad_request') 
+                        {
                             echo "Please login first...";
                         }
                     }
