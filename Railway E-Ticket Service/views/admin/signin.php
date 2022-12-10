@@ -47,7 +47,7 @@
             </div>
             <button class="signin-button">Login</button>
             <div class="link">
-                <a href="#">Forgot password?</a> or <a href="signup.php">Sign Up</a>
+                <a href="forgottenPass.php">Forgot password?</a> or <a href="signup.php">Sign Up</a>
             </div>
         </div>
     </form>

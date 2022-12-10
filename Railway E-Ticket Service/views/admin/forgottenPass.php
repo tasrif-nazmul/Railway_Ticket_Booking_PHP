@@ -1,11 +1,11 @@
 <html>
 <head>
     <title>Forgotten Password</title>
-    <link rel="stylesheet" href="../assects/css/user/forgottenPass.css">
+    <link rel="stylesheet" href="../../assects/css/user/forgottenPass.css">
 </head>
 
 <body>
-    <form action="../controllers/forgottenPassVal.php" method="post" onsubmit="return checkAll()">
+    <form action="../../controllers/admin/forgottenPassVal.php" method="post" onsubmit="return checkAll()">
         <div class="login-div">
             <div class="logo"></div>
             <div class="title">Railway E-Ticket</div>

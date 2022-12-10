@@ -96,7 +96,16 @@ function suspend($row_name)
 function forgottenUser($email, $password,$Cpassword)
 {
     $con = getConnection();
-    $sql = "update users set Password='{$password}' and confirmPassword='{$Cpassword}' where Email='{$email}'";
+    //$sql = "update users set Password='{$password}' and ConfirmPassword='{$Cpassword}' where Email='{$email}'";
+    $sql = "UPDATE `users` SET `Password` = '{$password}', `ConfirmPassword` = '{$Cpassword}' WHERE `Email` = '{$email}'";
+    $status = mysqli_query($con, $sql);
+    return $status;
+}
+function forgottenAdmin($email, $password,$Cpassword)
+{
+    $con = getConnection();
+    //$sql = "update users set Password='{$password}' and ConfirmPassword='{$Cpassword}' where Email='{$email}'";
+    $sql = "UPDATE `admin` SET `Password` = '{$password}', `ConfirmPassword` = '{$Cpassword}' WHERE `Email` = '{$email}'";
     $status = mysqli_query($con, $sql);
     return $status;
 }
@@ -104,6 +113,24 @@ function emailExistForUser($email)
 {
     $con = getConnection();
     $sql = "select * from users where Email='{$email}'";
+    $status = mysqli_query($con, $sql);
+    $count = mysqli_num_rows($status);
+    // Closing database connection
+    $con->close();
+
+    if($count == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+function emailExistForAdmin($email)
+{
+    $con = getConnection();
+    $sql = "select * from admin where Email='{$email}'";
     $status = mysqli_query($con, $sql);
     $count = mysqli_num_rows($status);
     // Closing database connection
