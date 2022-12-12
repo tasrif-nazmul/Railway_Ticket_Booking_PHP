@@ -8,21 +8,12 @@ if(!isset($_COOKIE['status']))
 <html>
 <head>
     <title>View Ticket</title>
+    <link rel="stylesheet" href="../assects/css/tableStyle.css">
 </head>
 <body>
 <center>
     <form method="post">
-        <table border="2px">
-            <tr>
-                <td width="300px">
-                    <img src="../assects/train.jpg" width="30px">Railway E-ticket Service
-                </td>
-                <td align="left">
-                    <a href="">Home</a> |
-                    <a href="">Login</a> |
-                    <a href="">Registration</a>
-                </td>
-            </tr>
+        
             <?php
             $username = $_COOKIE['username'];
     $con = mysqli_connect('localhost', 'root','','webtech');
@@ -31,7 +22,7 @@ if(!isset($_COOKIE['status']))
     // $data = mysqli_fetch_assoc($result);
     // print_r($data);
 
-    echo "<table border=1> 
+    echo "<table> 
             
             <tr>
                 <th>Ticket Number</th>
@@ -59,7 +50,6 @@ if(!isset($_COOKIE['status']))
 
     echo "</table>";
 ?>
-</table>
            
 </center>
 </body>

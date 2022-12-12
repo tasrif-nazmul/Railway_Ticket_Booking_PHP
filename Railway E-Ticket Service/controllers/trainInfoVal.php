@@ -3,7 +3,6 @@ require_once'../models/db.php';
 
     
     $typedText = $_POST['typedText'];
-    //$search = $_POST['search'];
     
    
     if($typedText == null)

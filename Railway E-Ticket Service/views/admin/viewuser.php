@@ -8,6 +8,7 @@ if(!isset($_COOKIE['adminStatus']))
 <html>
 <head>
     <title>View User</title>
+    <link rel="stylesheet" href="../../assects/css/viewUser.css">
 </head>
 <body>
 <center>
@@ -28,7 +29,7 @@ if(!isset($_COOKIE['adminStatus']))
     $sql = "select * from users";
     $result = mysqli_query($con, $sql);
 
-    echo "<table border=1> 
+    echo "<table> 
             
             <tr>
                 <th>Name</th>
@@ -54,17 +55,7 @@ if(!isset($_COOKIE['adminStatus']))
 
     echo "</table>";
 ?>
-</table>
-            <tr>
-            <br>
-            <td> <button onClick="window.location.href='dashboard.php';">  
-                Back  
-                </button> </td><br>
-                <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
-                </td>
-            </tr>
-        </table>
+
     </form>
 </center>
 </body>

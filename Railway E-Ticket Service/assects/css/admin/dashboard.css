@@ -57,6 +57,20 @@ h1,h2{
     height: 10vh;
     background: white;
 }
+.container .header .nav{
+    margin-top: 22px;
+    float: right;
+    padding-right: 50px;
+}
+.container .header .nav a{
+    padding-right: 50px;
+    color: black;
+}
+.container .header .nav a:hover{
+    padding-right: 50px;
+    color: rgb(228, 29, 29);
+}
+
 .container .content{
     position: relative;
     margin-top: 10vh;

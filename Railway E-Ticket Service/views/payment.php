@@ -29,6 +29,7 @@ if (!isset($data))
 <html>
 <head>
     <title>Select Ticket</title>
+    <link rel="stylesheet" href="../assects/css/tableStyle.css">
 </head>
     <body>
     <fieldset>

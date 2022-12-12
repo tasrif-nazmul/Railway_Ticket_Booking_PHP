@@ -22,8 +22,9 @@ if(!isset($_COOKIE['adminStatus']))
                 <li><a href="addSchedule.php">Add Train Schedule</a></li>
                 <li><a href="viewSchedule.php">View Schedule</a></li>
                 <li><a href="viewSchedule.php">Update Schedule</a></li>
+                <li><a href="bookedTicket.php">Booked Tickets</a></li>
                 <li><a href="viewuser.php">User Login Details</a></li>
-                <li><a href="../../controllers/logout.php">Logout</a></li>
+                <li><a href="../../controllers/admin/logoutAdmin.php">Logout</a></li>
             </ul>
     </div>
     <div class="container">
@@ -40,7 +41,18 @@ if(!isset($_COOKIE['adminStatus']))
             <div class="cards">
                 <div class="card">
                     <div class="box">
-                        <h1>1000</h1>
+                        
+                    <h1>
+                        <?php
+                            $con = mysqli_connect('localhost','root','','webtech');
+                            $sql = "select * from users";
+                            $status = mysqli_query($con,$sql);
+                            if($count=mysqli_num_rows($status))
+                            {
+                                echo $count;
+                            }
+                        ?>
+                        </h1>
                         <h3>Users</h3>
                     </div>
                     <div class="icon-case">
@@ -49,7 +61,17 @@ if(!isset($_COOKIE['adminStatus']))
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>1000</h1>
+                        <h1>
+                            <?php
+                                $con = mysqli_connect('localhost','root','','webtech');
+                                $sql = "select * from traininfo";
+                                $status = mysqli_query($con,$sql);
+                                if($count=mysqli_num_rows($status))
+                                {
+                                    echo $count;
+                                }
+                            ?>
+                        </h1>
                         <h3>Train</h3>
                     </div>
                     <div class="icon-case">
@@ -58,7 +80,17 @@ if(!isset($_COOKIE['adminStatus']))
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>1000</h1>
+                        <h1>
+                            <?php
+                                $con = mysqli_connect('localhost','root','','webtech');
+                                $sql = "select * from train";
+                                $status = mysqli_query($con,$sql);
+                                if($count=mysqli_num_rows($status))
+                                {
+                                    echo $count;
+                                }
+                            ?>
+                        </h1>
                         <h3>Schedule</h3>
                     </div>
                     <div class="icon-case">
@@ -67,7 +99,17 @@ if(!isset($_COOKIE['adminStatus']))
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>1000</h1>
+                        <h1>
+                            <?php
+                                $con = mysqli_connect('localhost','root','','webtech');
+                                $sql = "select * from ticketBook";
+                                $status = mysqli_query($con,$sql);
+                                if($count=mysqli_num_rows($status))
+                                {
+                                    echo $count;
+                                }
+                            ?>
+                        </h1>
                         <h3>Ticket Booking</h3>
                     </div>
                     <div class="icon-case">

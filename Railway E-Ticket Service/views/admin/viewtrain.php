@@ -8,6 +8,7 @@ if(!isset($_COOKIE['adminStatus']))
 <html>
 <head>
     <title>View Train</title>
+    <link rel="stylesheet" href="../../assects/css/tableStyle.css">
 </head>
 <body>
 <center>

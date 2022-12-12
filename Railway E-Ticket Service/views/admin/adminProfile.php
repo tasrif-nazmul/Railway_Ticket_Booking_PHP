@@ -17,7 +17,7 @@
 </head>
 <body>
 <center>
-    <form>
+    <form action="#" method="POST" enctype="multipart/form-data">
         <table border="2px">
             <tr>
                 <td width="300px">
@@ -30,7 +30,8 @@
             </tr>
             <tr>
                 <td colspan="2" align="left">
-                    <input type="file" name="pp">
+                    <input type="file" name="uploadfile">
+                    <input type="submit" name="submit" value="Upload">
                     <?php
 
                         $con = mysqli_connect('localhost', 'root','','webtech');

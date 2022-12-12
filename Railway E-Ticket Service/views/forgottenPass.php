@@ -67,7 +67,7 @@
                     <input type="password" name="Cpassword" class="pass-input" id="ConfirmPassword" placeholder="re-type password" onkeyup="cpassCheck()">
                 </div>
             </div>
-            <button class="signin-button">Login</button>
+            <button class="signin-button">Save</button>
         </div>
 
         <script>

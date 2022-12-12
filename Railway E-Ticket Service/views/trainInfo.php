@@ -9,38 +9,27 @@ if(!isset($_COOKIE['status']))
 <html>
 <head>
     <title>Train Information</title>
+    <link rel="stylesheet" href="../assects/css/tableStyle.css">
 </head>
 <body>
 <center>
  
-        <table border="2px">
-            <tr>
-                <td width="300px">
-                <a href="home.php"> <img src="../assects/train.jpg" width="30px">Railway E-ticket Service</a>
-                </td>
-                <td align="left">
-                    <a href="home.php">Home</a> |
-                    <a href="../controllers/logout.php">logout</a> |
-                    <a href="reg.php">Registration</a>
-                </td>
-            </tr>
+        <table>
             <tr>
                 <td>
-                <input type="text" name="typedText" id="typedText" onkeyup='liveSearchAJAX()'>
+                <input type="text" name="typedText" id="typedText" placeholder="select a train" onkeyup='liveSearchAJAX()'>
                 <input type="submit" name="search" id="search" onclick='liveSearchAJAX()'>
 
                 </td>
+            </tr>
+            <tr>
                 <td>
                     <h3 id="info"></h3>
             
                 
                 <td>
             </tr>
-            <tr>
-                <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
-                </td>
-            </tr>
+            
         </table>
   
 </center>
@@ -51,7 +40,6 @@ if(!isset($_COOKIE['status']))
     function liveSearchAJAX()
     {  
     let typedText = document.getElementById("typedText").value;
-   // let search = document.getElementById("search").value;
     let xhttp = new XMLHttpRequest();
 
     xhttp.open('POST', '../controllers/trainInfoVal.php', true);

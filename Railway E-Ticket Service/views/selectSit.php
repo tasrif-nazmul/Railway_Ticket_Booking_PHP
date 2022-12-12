@@ -30,6 +30,7 @@ if(!isset($_COOKIE['status']))
 <html>
 <head>
     <title>Select Ticket</title>
+    <link rel="stylesheet" href="../assects/css/tableStyle.css">
 </head>
     <body>
     <fieldset>
@@ -90,7 +91,6 @@ if(!isset($_COOKIE['status']))
                 <tr>
                     <td colspan="2">
                         <input type="submit" value="Book" name="book">
-                        <a href="bookTicket.php">Back</a>
                     </td>
                 </tr>
 

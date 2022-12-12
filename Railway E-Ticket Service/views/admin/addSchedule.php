@@ -148,7 +148,7 @@
             </tr>
             <tr>
                 <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
+                   @copyright 2022
                 </td>
             </tr>
         </table>

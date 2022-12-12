@@ -36,11 +36,9 @@
                     <?php
 
                         $con = mysqli_connect('localhost', 'root','','webtech');
-                        $sql = "";
-                        if($category)
-                        {
-                            $sql = "select Name, Email, Username, Gender, DateOfBirth from admin1 where username = '{$username}'";
-                        }
+
+                        $sql = "select Name, Email, Username, Gender, DateOfBirth from admin1 where username = '{$username}'";
+                        
                         $result = mysqli_query($con, $sql);
                         if ($result) 
                         {
@@ -81,7 +79,7 @@
             </tr>
             <tr>
                 <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
+                    @copyright 2022
                 </td>
             </tr>
         </table>
