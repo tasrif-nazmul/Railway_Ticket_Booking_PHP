@@ -1,4 +1,5 @@
 <?php 
+require_once'../../models/trainModel.php';
 
 session_start();
     if(!isset($_COOKIE['adminStatus']))
@@ -23,11 +24,8 @@ session_start();
 		  
 	}
 
-    $con = mysqli_connect('localhost', 'root', '', 'webtech');
-    $sql = "select * from train where trainName='{$name}'";
-    $result = mysqli_query($con, $sql);
 
-    $data  = mysqli_fetch_assoc($result);
+    $data = deleteSchedulee($name);
 
     if (!isset($data))
     { 

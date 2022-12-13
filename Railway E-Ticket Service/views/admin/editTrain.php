@@ -30,8 +30,6 @@ session_start();
     <title>Edit Train</title>
 
     <body>
-    <!-- <a href="../views/dashboard.php">Home</a>&nbsp <a href="addTrain.php">Add Train </a> &nbsp <a href="../views/viewtrain.php">Display Trains </a>
-    <br><br> -->
     <fieldset>
     <legend>Edit Train</legend>
          

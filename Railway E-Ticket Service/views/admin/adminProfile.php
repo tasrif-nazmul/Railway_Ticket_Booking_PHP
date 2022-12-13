@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once '../../models/trainModel.php';
     $username='username';
     if(isset($_COOKIE['adminStatus']))
     {
@@ -34,10 +35,7 @@
                     <input type="submit" name="submit" value="Upload">
                     <?php
 
-                        $con = mysqli_connect('localhost', 'root','','webtech');
-                        $sql = "select Name, Email, Username, Gender, DateOfBirth from admin where username = '{$username}'";
-                        
-                        $result = mysqli_query($con, $sql);
+                        $result = adminPrpfile($username);
                         if ($result) 
                         {
                             // Fetch one and one row
@@ -62,7 +60,7 @@
                                     <td align="left"><?php echo $row['Gender'];?></td>
                                 </tr>
                                 <tr>
-                                    <th align="right">Date of Birht:</th>
+                                    <th align="right">Date of Birth:</th>
                                     <td align="left"><?php echo $row['DateOfBirth'];?></td>
                                 </tr>
                             </table>
@@ -77,7 +75,7 @@
             </tr>
             <tr>
                 <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
+                    @copyright 2022
                 </td>
             </tr>
         </table>

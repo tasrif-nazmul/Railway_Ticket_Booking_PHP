@@ -1,4 +1,5 @@
 <?php
+require_once'../../models/trainModel.php';
 if(!isset($_COOKIE['adminStatus']))
 {
     header('location: signin.php?err=bad_request');
@@ -14,10 +15,9 @@ if(!isset($_COOKIE['adminStatus']))
 <center>
     <form method="post">
     <?php
-    $con = mysqli_connect('localhost', 'root','','webtech');
-    $sql = "select * from ticketbook";
-    $result = mysqli_query($con, $sql);
 
+
+    $result = bookTickett();
     echo "<table> 
             
             <tr>

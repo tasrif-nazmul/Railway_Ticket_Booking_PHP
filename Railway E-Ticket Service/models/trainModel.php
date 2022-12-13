@@ -156,6 +156,64 @@ function availableTrainn($from,$to,$doj)
     }
 }
 
+function adminPrpfile($username)
+{
+    {
+        $con = getConnection();
+        $sql = "select Name, Email, Username, Gender, DateOfBirth from admin where username = '{$username}'";
+        $result = mysqli_query($con, $sql);
+        return $result;
+    }
+}
+function bookTickett()
+{
+        $con = getConnection();
+        $sql = "select * from ticketbook";
+        $result = mysqli_query($con, $sql);
+        //$data = mysqli_fetch_assoc($result);
+        return $result;
+}
+function dashboardUsers()
+{
+        $con = getConnection();
+        $sql = "select * from users";
+        $status = mysqli_query($con,$sql);
+        $count = mysqli_num_rows($status);
+        return $count;
+}
+function dashboardTrain()
+{
+        $con = getConnection();
+        $sql = "select * from traininfo";
+        $status = mysqli_query($con,$sql);
+        $count = mysqli_num_rows($status);
+        return $count;
+}
+function dashboardSchedule()
+{
+        $con = getConnection();
+        $sql = "select * from train";
+        $status = mysqli_query($con,$sql);
+        $count = mysqli_num_rows($status);
+        return $count;
+}
+function dashboardBooking()
+{
+        $con = getConnection();
+        $sql = "select * from ticketBook";
+        $status = mysqli_query($con,$sql);
+        $count = mysqli_num_rows($status);
+        return $count;
+}
+function deleteSchedulee($name)
+{
+        $con = getConnection();
+        $sql = "select * from train where trainName='{$name}'";
+        $result = mysqli_query($con, $sql);
+        $data  = mysqli_fetch_assoc($result);
+        return $data;
+}
+
 
 
 

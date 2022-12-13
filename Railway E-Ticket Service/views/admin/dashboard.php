@@ -1,4 +1,5 @@
 <?php
+require_once'../../models/trainModel.php';
 if(!isset($_COOKIE['adminStatus']))
 {
     header('location: signin.php?err=bad_request');
@@ -32,7 +33,7 @@ if(!isset($_COOKIE['adminStatus']))
         <div class="header">
             <div class="nav">
                 <a href="addTr.php">Add Train</a>
-                <a href="">About</a>
+                <a href="searchUser.php">Search</a>
                 <a href="">Home</a>
                 <a href="adminProfile.php">Profile</a>
             </div>
@@ -45,10 +46,9 @@ if(!isset($_COOKIE['adminStatus']))
                         
                     <h1>
                         <?php
-                            $con = mysqli_connect('localhost','root','','webtech');
-                            $sql = "select * from users";
-                            $status = mysqli_query($con,$sql);
-                            if($count=mysqli_num_rows($status))
+                            $count = dashboardUsers();
+
+                            if($count)
                             {
                                 echo $count;
                             }
@@ -64,10 +64,8 @@ if(!isset($_COOKIE['adminStatus']))
                     <div class="box">
                         <h1>
                             <?php
-                                $con = mysqli_connect('localhost','root','','webtech');
-                                $sql = "select * from traininfo";
-                                $status = mysqli_query($con,$sql);
-                                if($count=mysqli_num_rows($status))
+                                $count = dashboardTrain();
+                                if($count)
                                 {
                                     echo $count;
                                 }
@@ -83,10 +81,8 @@ if(!isset($_COOKIE['adminStatus']))
                     <div class="box">
                         <h1>
                             <?php
-                                $con = mysqli_connect('localhost','root','','webtech');
-                                $sql = "select * from train";
-                                $status = mysqli_query($con,$sql);
-                                if($count=mysqli_num_rows($status))
+                                $count = dashboardSchedule();
+                                if($count)
                                 {
                                     echo $count;
                                 }
@@ -102,10 +98,8 @@ if(!isset($_COOKIE['adminStatus']))
                     <div class="box">
                         <h1>
                             <?php
-                                $con = mysqli_connect('localhost','root','','webtech');
-                                $sql = "select * from ticketBook";
-                                $status = mysqli_query($con,$sql);
-                                if($count=mysqli_num_rows($status))
+                                $count = dashboardBooking();
+                                if($count)
                                 {
                                     echo $count;
                                 }
