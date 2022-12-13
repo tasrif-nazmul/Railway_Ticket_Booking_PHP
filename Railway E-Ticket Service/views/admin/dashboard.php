@@ -24,6 +24,7 @@ if(!isset($_COOKIE['adminStatus']))
                 <li><a href="viewSchedule.php">Update Schedule</a></li>
                 <li><a href="bookedTicket.php">Booked Tickets</a></li>
                 <li><a href="viewuser.php">User Login Details</a></li>
+                <li><a href="changePass.php">Change Password</a></li>
                 <li><a href="../../controllers/admin/logoutAdmin.php">Logout</a></li>
             </ul>
     </div>

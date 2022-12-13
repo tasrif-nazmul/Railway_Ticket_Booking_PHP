@@ -8,7 +8,7 @@ if(!isset($_COOKIE['status']))
 <html>
 <head>
     <title>Homepage</title>
-    <link rel="stylesheet" href="../assects/css/styles.css">
+    <link rel="stylesheet" href="../assects/css/home.css">
 </head>
 <body>
 <!-- <center>
@@ -59,7 +59,11 @@ if(!isset($_COOKIE['status']))
 
         </div> 
         <div class="content">
-               
+            <a href="trainInfo.php">Train Information</a></br>
+            <a href="bookTicket.php">Book Ticket</a> </br>
+            <a href="viewTicket.php">View Ticket</a> </br>
+            <a href="cancelTicket.php">Cancel Ticket</a> </br>
+            <a href="changePass.php">Change Password</a> </br>
         </div>
     </div>
 
