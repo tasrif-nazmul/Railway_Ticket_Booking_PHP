@@ -4,6 +4,7 @@ if(!isset($_COOKIE['adminStatus']))
 {
     header('location: signin.php?err=bad_request');
 }
+$username = $_COOKIE['username'];
 ?>
 
 <html>
@@ -35,7 +36,20 @@ if(!isset($_COOKIE['adminStatus']))
                 <a href="addTr.php">Add Train</a>
                 <a href="searchUser.php">Search</a>
                 <a href="">Home</a>
-                <a href="adminProfile.php">Profile</a>
+                <a href="adminProfile.php">
+                <?php
+                    $con = mysqli_connect('localhost', 'root', '', 'webtech');
+                    $sql = "select name from admin where Username='{$username}'";
+                    $result = mysqli_query($con, $sql);
+                    if($result)
+                    {
+                        while ($row = $result->fetch_assoc())
+                        {
+                            echo $row['name'];
+                        }
+                    }
+                ?>
+                </a>
             </div>
 
         </div>

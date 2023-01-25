@@ -39,7 +39,7 @@ require_once'../models/db.php';
                         <tr>
                             <th>Train Name</th>
                             <th>From Station</th>
-                            <th>Arrival Time</th>
+                            <th>Start Time</th>
                             <th>To Station</th>
                             <th>Arrival Time</th>
                         </tr>

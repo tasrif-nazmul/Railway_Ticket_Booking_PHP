@@ -213,6 +213,13 @@ function deleteSchedulee($name)
         $data  = mysqli_fetch_assoc($result);
         return $data;
 }
+function viewTrain()
+{
+        $con = getConnection();
+        $sql = "select * from traininfo";
+        $result = mysqli_query($con, $sql);
+        return $result;
+}
 
 
 

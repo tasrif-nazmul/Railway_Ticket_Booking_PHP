@@ -11,7 +11,7 @@ if($oldPassword == "" || $newPassword == "" || $Cpassword == "")
 }
 
 $conn = mysqli_connect('localhost','root','','webtech');
-$sqll = "select Password from admin where username = '{$username}' and password = '{$oldPassword}'";
+$sqll = "select Password from users where Username = '{$username}' and Password = '{$oldPassword}'";
 $query = mysqli_query($conn,$sqll);
 //$row = mysqli_num_rows($query);
 
@@ -31,7 +31,7 @@ else{
 
 
     $con = mysqli_connect('localhost','root','','webtech');
-    $sql = "UPDATE `admin` SET `Password` = '{$newPassword}', `ConfirmPassword` = '{$Cpassword}' WHERE `Username` = '{$username}'";
+    $sql = "UPDATE `users` SET `Password` = '{$newPassword}', `ConfirmPassword` = '{$Cpassword}' WHERE `Username` = '{$username}'";
     $status = mysqli_query($con, $sql);
     
     if($status)

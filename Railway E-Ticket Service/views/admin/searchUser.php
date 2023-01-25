@@ -1,5 +1,4 @@
 <?php
-//require_once'../models/trainModel.php';
 if(!isset($_COOKIE['adminStatus']))
 {
     header('location: signin.php?err=bad_request');
@@ -51,7 +50,6 @@ if(!isset($_COOKIE['adminStatus']))
         
         if(this.readyState == 4 && this.status == 200)
         {    
-                //alert(this.responseText);
             document.getElementsByTagName("h3")[0].innerHTML = this.responseText;
         }
         

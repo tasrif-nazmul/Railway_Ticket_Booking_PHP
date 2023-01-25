@@ -4,29 +4,46 @@ if(!isset($_COOKIE['status']))
 {
     header('location: login.php?err=bad_request');
 }
+$username = $_COOKIE['username'];
 ?>
 
 <html>
 <head>
     <title>Ticket Booking</title>
+    <link rel="stylesheet" href="../assects/css/user/bookTicket.css">
 </head>
 <body>
-<center>
-    <form method="post">
-        <table border="2px">
-            <tr>
-                <td width="300px">
-                <a href="home.php"> <img src="../assects/train.jpg" width="30px">Railway E-ticket Service</a>
-                </td>
-                <td align="left">
-                    <a href="home.php">Home</a> |
-                    <a href="signin.php">Login</a> |
-                    <a href="reg.php">Registration</a>
-                </td>
-            </tr>
-            <tr>
-            <td>
-                </br>
+    <div class="fullBody">
+        <div class="navbar">
+            <div class="nav">
+                <div class="logo">
+                    <a href="home.php">Railway E-ticket Service</a>
+                </div>
+
+                <div class="link">
+                    <a href="home.php">Home</a>
+                    <a href="userProfile.php">
+                        <?php
+                            $con = mysqli_connect('localhost', 'root', '', 'webtech');
+                            $sql = "select name from users where Username='{$username}'";
+                            $result = mysqli_query($con, $sql);
+                            if($result)
+                            {
+                                while ($row = $result->fetch_assoc())
+                                {
+                                    echo $row['name'];
+                                }
+                            }
+                        ?></a>
+                </div>
+                
+
+            </div>
+            
+        </div>
+                
+        <div class="content">
+            <div class="content1">
                 From Station: 
                 <select name="from">
                     <option value>Select From Station</option>
@@ -38,6 +55,7 @@ if(!isset($_COOKIE['status']))
                     <option value="Rangpur">Rangpur</option>
                     <option value="Maymensingh">Maymensingh</option>
                     <option value="Rajshahi">Rajshahi</option>
+                    <option value="Benapol">Benapol</option>
                 </select></br>
                  To station: 
                 <select name="to">
@@ -50,13 +68,14 @@ if(!isset($_COOKIE['status']))
                     <option value="Rangpur">Rangpur</option>
                     <option value="Maymensingh">Maymensingh</option>
                     <option value="Rajshahi">Rajshahi</option>
+                    <option value="Benapol">Benapol</option>
                 </select></br>
                 Date of Journey: 
                 <input type="date" name="doj" value="" /></br>
                 <input type="submit" name="btn" value="Search Train"/>
                 </br>
-            </td>
-            <td>
+            </div>
+
             <?php 
                 if(isset($_POST['btn']))
                 {
@@ -104,16 +123,7 @@ if(!isset($_COOKIE['status']))
                 }
                 
                 ?>
-            </td>
-            
-            </tr>
-            <tr>
-                <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat, Aditya, Uma
-                </td>
-            </tr>
-        </table>
-    </form>
-</center>
+        </div>
+    </div>
 </body>
 </html>

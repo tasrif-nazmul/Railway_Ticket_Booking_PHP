@@ -18,8 +18,6 @@ if(!isset($_COOKIE['adminStatus']))
     $con = mysqli_connect('localhost', 'root','','webtech');
     $sql = "select * from train";
     $result = mysqli_query($con, $sql);
-    // $data = mysqli_fetch_assoc($result);
-    // print_r($data);
 
     echo "<table border=1> 
             

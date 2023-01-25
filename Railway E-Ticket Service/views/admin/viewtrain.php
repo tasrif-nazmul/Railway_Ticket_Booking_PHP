@@ -1,4 +1,5 @@
 <?php
+require_once'../../models/trainModel.php';
 if(!isset($_COOKIE['adminStatus']))
 {
     header('location: signin.php?err=bad_request');
@@ -19,18 +20,15 @@ if(!isset($_COOKIE['adminStatus']))
                     <img src="../assects/train.jpg" width="30px">Railway E-ticket Service
                 </td>
                 <td align="left">
-                    <a href="../home.php">Home</a> |
-                    <a href="../signin.php">Login</a> |
-                    <a href="../reg.php">Registration</a>
+                    <a href="dashboard.php">Dashboard</a> |
+                    <a href="../../controllers/admin/logoutAdmin.php">Logout</a>
                 </td>
             </tr>
             <?php
-                $con = mysqli_connect('localhost', 'root','','webtech');
-                $sql = "select * from traininfo";
-                $result = mysqli_query($con, $sql);
-                // $data = mysqli_fetch_assoc($result);
-                // print_r($data);
-
+                // $con = mysqli_connect('localhost', 'root','','webtech');
+                // $sql = "select * from traininfo";
+                // $result = mysqli_query($con, $sql);
+            $result = viewTrain();
     echo "<table border=1> 
             
             <tr>

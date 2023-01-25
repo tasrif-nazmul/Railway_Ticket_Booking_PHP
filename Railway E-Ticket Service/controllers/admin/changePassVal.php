@@ -11,7 +11,7 @@ if($oldPassword == "" || $newPassword == "" || $Cpassword == "")
 }
 
 $conn = mysqli_connect('localhost','root','','webtech');
-$sqll = "select Password from admin where username = '{$username}' and password = '{$oldPassword}'";
+$sqll = "select Password from admin where Username = '{$username}' and Password = '{$oldPassword}'";
 $query = mysqli_query($conn,$sqll);
 //$row = mysqli_num_rows($query);
 

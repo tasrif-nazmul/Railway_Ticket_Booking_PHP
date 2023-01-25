@@ -2,6 +2,7 @@
 session_start();
 require_once "../models/userModel.php";
 $username = $_POST['username'];
+$name = $_POST['name'];
 $password = $_POST['password'];
 
 

@@ -16,8 +16,8 @@
                 <ul>
                     <li><a href="#">HOME</a></li>
                     <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">SERVICE</a></li>
                     <li><a href="views/trainInfo.php">Train Information</a></li>
+                    <li><a href="views/reg.php">Regestration</a></li>
                     <li><a href="views/login.php">Login</a></li>
                 </ul>
             </div>

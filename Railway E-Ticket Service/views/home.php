@@ -3,6 +3,7 @@ if(!isset($_COOKIE['status']))
 {
     header('location: login.php?err=bad_request');
 }
+$username = $_COOKIE['username'];
 ?>
 
 <html>
@@ -11,35 +12,6 @@ if(!isset($_COOKIE['status']))
     <link rel="stylesheet" href="../assects/css/home.css">
 </head>
 <body>
-<!-- <center>
-    <form>
-        <table border="2px">
-            <tr>
-                <td width="300px">
-                <a href="home.php"> <img src="../assects/train.jpg" width="30px">Railway E-ticket Service</a>
-                </td>
-                <td align="left">
-                    <a href="home.php">Home</a> |
-                    <a href="../controllers/logout.php">logout</a> |
-                    <a href="userProfile.php">Profile</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="left">
-                    <a href="trainInfo.php">Train Information</a></br>
-                    <a href="bookTicket.php">Book Ticket</a> </br>
-                    <a href="viewTicket.php">View Ticket</a> </br>
-                    <a href="cancelTicket.php">Cancel Ticket</a> </br>
-                </td>
-            </tr>
-            <tr>
-                <td colspan=2 align="center">
-                    Presented by: Nazmul, Jannat
-                </td>
-            </tr>
-        </table>
-    </form>
-</center> -->
 
 <div class="main">
         <div class="navbar">

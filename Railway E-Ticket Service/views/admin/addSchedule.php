@@ -68,6 +68,7 @@
                                         <option value="Dhaka Exress">Dhaka Exress</option>
                                         <option value="Maymensingh Exress">Maymensingh Exress</option>
                                         <option value="Agarosindur Exress">Agarosindur Exress</option>
+                                        <option value="Benapol Express">Benapol Express</option>
                                     </select></br>
                                 </td>
                             </tr>
@@ -86,6 +87,7 @@
                                         <option value="Rangpur">Rangpur</option>
                                         <option value="Maymensingh">Maymensingh</option>
                                         <option value="Rajshahi">Rajshahi</option>
+                                        <option value="Benapol">Benapol</option>
                                     </select></br>
                                 </td>
                             </tr>
@@ -113,6 +115,7 @@
                                         <option value="Rangpur">Rangpur</option>
                                         <option value="Maymensingh">Maymensingh</option>
                                         <option value="Rajshahi">Rajshahi</option>
+                                        <option value="Benapol">Benapol</option>
                                     </select></br>
                                 </td>
                             </tr>

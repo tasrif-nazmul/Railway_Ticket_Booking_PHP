@@ -1,9 +1,9 @@
 <?php
 //require_once'../models/trainModel.php';
-if(!isset($_COOKIE['status']))
-{
-    header('location: login.php?err=bad_request');
-}
+// if(!isset($_COOKIE['status']))
+// {
+//     header('location: login.php?err=bad_request');
+// }
 ?>
 
 <html>
