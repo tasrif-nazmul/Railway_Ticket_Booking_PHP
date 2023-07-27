@@ -3,12 +3,18 @@
     padding: 0;
 }
 
-.main{
+/* body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+} */
+
+.main-part{
     width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(assects/trainBackgroung.jpg);
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(../../picture/home/home.jpg);
     background-position: center;
+    padding-bottom: 100px;
     background-size: cover;
-    height: 100vh;
+    background-repeat: no-repeat;
 }
 
 .navbar{
@@ -260,4 +266,173 @@ ul li a:hover{
 }
 .icons ion-icon:hover{
     color: #ff7200;
+}
+
+
+/*Search-form design*/
+
+
+
+.form-container {
+    max-width: 400px;
+    margin-top: 10%;
+    margin-left: 30%;
+    padding: 20px;
+    background-color: #ffffff24;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #ff7200;
+  }
+
+  .search-train{
+    color: #ff7200;
+    text-align: center;
+}
+  
+  .form-group {
+    margin-bottom: 15px;
+    margin-right: 15px;
+  }
+
+  /* Styling for the form group */
+
+.form-search {
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    margin: 20px auto;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .form-search .fa-magnifying-glass {
+    font-size: 12px;
+    color: #ffffff;
+    padding-right: 6px;
+  }
+  
+
+  /* .form-search {
+    padding: 10px 20px;
+    background-color: #ff7200;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  } */
+
+  .form-search button {
+    display: block;
+    /* padding: 4px; */
+    background-color: #ff7200;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 300px;
+    height: 45px;
+  }
+
+  /*--------------------*/
+  
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff7200;
+    border-radius: 4px;
+    background-color: #00000033;
+    color: white;
+  }
+
+
+  /* input[type="text"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff7200;
+    border-radius: 4px;
+    background-color: #00000033;
+    color: white;
+  } */
+  
+  
+
+
+
+/* Main styles for the buying-instruction section */
+.buying-instruction {
+    background-color: #f2f2f2;
+    padding: 30px;
+}
+
+/* Header styles */
+.bi-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #ff7200;
+    margin-top: 50px;
+}
+
+.line-sep {
+        font-size: 40px;
+        text-align: center;
+        display: block;
+        margin-bottom: 50px;
+    }
+
+/* Steps container styles */
+.bi-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+/* Individual step styles */
+.bi-steps1,
+.bi-steps2,
+.bi-steps3 {
+    width: calc(25% - 10px); /* Adjust the width as needed */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Icon styles */
+.bis-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: #ff7200; /* Change the icon color as desired */
+    margin-bottom: 10px;
+}
+
+/* Text styles */
+.bis-text .bist-main {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #333; /* Change the main text color as desired */
+    margin-bottom: 10px;
+}
+
+.bis-text .bist-info {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
 }

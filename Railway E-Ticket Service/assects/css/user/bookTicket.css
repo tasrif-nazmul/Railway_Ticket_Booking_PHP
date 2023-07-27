@@ -29,3 +29,10 @@
     padding-right: 40px;
 
 }
+.content .content1{
+    margin-top: 50px;
+    margin-left: 50px;
+    height: 400px;
+    width: 500px;
+    background-color: #e2dfdf;
+}
