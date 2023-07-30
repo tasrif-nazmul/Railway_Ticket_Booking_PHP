@@ -213,7 +213,7 @@ ul li a:hover{
 }
 
 ::placeholder{
-    color: #fff;
+    color: #888383;
     font-family: Arial;
 }
 
@@ -278,7 +278,7 @@ ul li a:hover{
     margin-top: 10%;
     margin-left: 30%;
     padding: 20px;
-    background-color: #ffffff24;
+    background-color: #ffffff00;
     border-radius: 5px;
     box-shadow: 0 2px 5px #ff7200;
   }
@@ -286,6 +286,11 @@ ul li a:hover{
   .search-train{
     color: #ff7200;
     text-align: center;
+}
+  .filedError{
+    color: #f4323a;
+    text-align: center;
+    margin-top: 10px;
 }
   
   .form-group {
@@ -312,20 +317,8 @@ ul li a:hover{
     padding-right: 6px;
   }
   
-
-  /* .form-search {
-    padding: 10px 20px;
-    background-color: #ff7200;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  } */
-
   .form-search button {
     display: block;
-    /* padding: 4px; */
     background-color: #ff7200;
     color: #ffffff;
     border: none;
@@ -353,17 +346,6 @@ ul li a:hover{
     background-color: #00000033;
     color: white;
   }
-
-
-  /* input[type="text"],
-  input[type="date"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ff7200;
-    border-radius: 4px;
-    background-color: #00000033;
-    color: white;
-  } */
   
   
 

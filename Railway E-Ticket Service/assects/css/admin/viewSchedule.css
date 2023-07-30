@@ -1,0 +1,104 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8dede;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* navbar design  */
+
+/* styles.css */
+
+.header {
+    background-color: #ff7200;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+}
+
+.nav a:hover {
+    color: #efe8e8;
+}
+
+
+
+.container {
+    width: 100%;
+    background-color: #f9faf7b7;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+.schedule-table {
+    display: grid;
+    /* grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px; */
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.schedule-row:nth-child(odd) {
+    background-color: #eeebe8;
+}
+
+.train-name,
+.from-station,
+.to-station,
+.start-time,
+.arrival-time,
+.date-of-journey {
+    text-align: center;
+}
+
+.edit,
+.delete {
+    text-align: center;
+}
+
+.edit a,
+.delete a {
+    display: block;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.edit a:hover,
+.delete a:hover {
+    color: #0056b3;
+}
+
+.edit a:active,
+.delete a:active {
+    color: #0056b3;
+}
+
+.edit a:focus,
+.delete a:focus {
+    outline: none;
+    box-shadow: 0 0 3px #007bff;
+}

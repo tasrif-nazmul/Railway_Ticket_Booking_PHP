@@ -221,7 +221,22 @@ function viewTrain()
         return $result;
 }
 
+//view schedule from admin side
 
+function getTrainSchedule() 
+{
+    $con = getConnection();
+    $sql = "select * from train";
+    $result = mysqli_query($con, $sql);
+
+    $data = array();
+    while ($row = mysqli_fetch_assoc($result)) 
+    {
+        $data[] = $row;
+    }
+
+    return $data;
+}
 
 
 ?>

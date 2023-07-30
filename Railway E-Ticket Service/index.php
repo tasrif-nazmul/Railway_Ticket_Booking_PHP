@@ -29,21 +29,40 @@
 
             
             <div class="form-container">
-                <form>
+                <form action="controllers/guest/indexVal.php" method="post">
                 <h2 class="search-train">Search your Train</h2>
+                <h5 class="filedError">
+                
+                <?php
+                    if(isset($_GET['err']))
+                    {
+                        if($_GET['err'] == 'null')
+                        {
+                            echo "Must be filled all info...";
+                        }
+
+                        else if($_GET['err'] == 'same')
+                        {
+                            echo "From and To station must be different";
+                        }
+                    }
+                ?>
+
+                </h5>
+                
                 <div class="form-group">
                 <label for="fromStation">From:</label>
-                <input type="text" id="fromStation" name="fromStation" placeholder="Enter From station" required>
+                <input type="text" id="fromStation" name="fromStation" placeholder="Enter From station" >
                 </div>
 
                 <div class="form-group">
                 <label for="toStation">To:</label>
-                <input type="text" id="toStation" name="toStation" placeholder="Enter To station" required>
+                <input type="text" id="toStation" name="toStation" placeholder="Enter To station" >
                 </div>
 
                 <div class="form-group">
                 <label for="travelDate">Date:</label>
-                <input type="date" id="travelDate" name="travelDate" placeholder="Pick your date" required>
+                <input type="date" id="travelDate" name="travelDate" placeholder="Pick your date" >
                 </div>
 
                 <div class="form-search">

@@ -4,50 +4,39 @@ if(!isset($_COOKIE['adminStatus']))
     header('location: signin.php?err=bad_request');
 }
 ?>
-
+<!DOCTYPE html>
 <html>
 <head>
     <title>View Schedule</title>
-    <link rel="stylesheet" href="../../assects/css/tableStyle.css">
+    <link rel="stylesheet" href="../../assects/css/admin/viewSchedule.css">
 </head>
 <body>
-<center>
-    <form method="post">
-        
-            <?php
-    $con = mysqli_connect('localhost', 'root','','webtech');
-    $sql = "select * from train";
-    $result = mysqli_query($con, $sql);
 
-    echo "<table border=1> 
-            
-            <tr>
-                <th>Train Name</th>
-                <th>From Station</th>
-                <th>Start Time</th>
-                <th>To station</th>
-                <th>Arrival Time</th>
-                <th>Date Of Journey</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>";
+        <div class="header">
+            <div class="nav">
+                <a href="dashboard.php">Dashboard</a>
+                <a href="#">Search</a>
+                <a href="#">Home</a>
+            </div>
 
-    while($data  = mysqli_fetch_assoc($result)){
-        echo    "<tr>
-                    <td>{$data['trainName']}</td>        
-                    <td>{$data['fromStation']}</td>       
-                    <td>{$data['startTime']}</td>       
-                    <td>{$data['toStation']}</td>  
-                    <td>{$data['arrivalTime']}</td>  
-                    <td>{$data['dateOfJourney']}</td>   
-                    <td> <a href ='editSchedule.php?edit={$data['trainName']}'>Edit</a></td> 
-                    <td> <a href ='deleteSchedule.php?delete={$data['trainName']}'>Delete</a></td>            
-                </tr>";
-    }
+        </div>
 
-    echo "</table>";
-?>
-    </form>
-</center>
+    <div class="container">
+        <div class="schedule-table">
+            <?php 
+                require_once '../../controllers/admin/scheduleProcessVal.php';
+                 foreach ($trainSchedules as $data): ?>
+                    <div class="schedule-row">
+                        <div class="train-name"><?php echo $data['trainName']; ?></div>
+                        <div class="from-station"><?php echo $data['fromStation']; ?></div>
+                        <div class="start-time"><?php echo $data['startTime']; ?></div>
+                        <div class="to-station"><?php echo $data['toStation']; ?></div>
+                        <div class="arrival-time"><?php echo $data['arrivalTime']; ?></div>
+                        <div class="date-of-journey"><?php echo $data['dateOfJourney']; ?></div>
+                        <div class="edit"><a href='editSchedule.php?edit=<?php echo $data['trainName']; ?>'>Edit</a></div>
+                    </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 </body>
 </html>
