@@ -62,7 +62,18 @@ session_start();
                         From Station
                     </td>
                     <td>
-                        <input type="text" placeholder="New From Station" name="fromStation"><br>
+                        <!-- <input type="text" placeholder="New From Station" name="fromStation"><br> -->
+                        <select name="fromStation">
+                            <option value>New From Station</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Rangpur">Rangpur</option>
+                            <option value="Mymenshing">Mymenshing</option>
+                            <option value="Barishal">Barishal</option>
+                            <option value="Chottogram">Chottogram</option>
+                            <option value="Sylhet">Sylhet</option>
+                        </select></br>
                     </td>
                 </tr>
 
@@ -80,7 +91,18 @@ session_start();
                         To Station
                     </td>
                     <td>
-                        <input type="text" placeholder="New To station" name="toStation"><br>
+                        <!-- <input type="text" placeholder="New To station" name="toStation"><br> -->
+                        <select name="toStation">
+                            <option value>New To Station</option>
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Rangpur">Rangpur</option>
+                            <option value="Mymenshing">Mymenshing</option>
+                            <option value="Barishal">Barishal</option>
+                            <option value="Chottogram">Chottogram</option>
+                            <option value="Sylhet">Sylhet</option>
+                        </select></br>
                     </td>
                 </tr>
 
