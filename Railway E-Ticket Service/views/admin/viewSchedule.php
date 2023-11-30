@@ -33,7 +33,7 @@ if(!isset($_COOKIE['adminStatus']))
                         <div class="to-station"><?php echo $data['toStation']; ?></div>
                         <div class="arrival-time"><?php echo $data['arrivalTime']; ?></div>
                         <div class="date-of-journey"><?php echo $data['dateOfJourney']; ?></div>
-                        <div class="edit"><a href='editSchedule.php?edit=<?php echo $data['trainName']; ?>'>Edit</a></div>
+                        <div class="edit"><a href='editSchedule.php?edit=<?php echo $data['id']; ?>'>Edit</a></div>
                     </div>
             <?php endforeach; ?>
         </div>

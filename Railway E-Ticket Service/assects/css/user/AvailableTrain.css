@@ -1,0 +1,48 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8dede;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #ff7200;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 5px 10px;
+}
+
+.nav a:hover {
+    color: #efe8e8;
+}
+
+/* Train container styles */
+.train-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.train-info {
+    margin-bottom: 5px;
+    font-weight: bold;
+}

@@ -135,26 +135,26 @@ function scheduleExist($trainName)
             return false;
         }
 }
-function availableTrain($from,$to,$doj)
-{
-    {
-        $con = getConnection();
-        $sql = "select * from `train` where fromStation = '$from' and toStation = '$to' and dateOfJourney = '$doj'";
-        $result = mysqli_query($con, $sql);
-        return $result;
-    }
-}
-function availableTrainn($from,$to,$doj)
-{
-    {
-        $con = getConnection();
-        $sql = "select * from `train` where fromStation = '$from' and toStation = '$to' and dateOfJourney = '$doj'";
-        //echo $sql."<br>";
-        $result = mysqli_query($con, $sql);
-        $rowNum = mysqli_fetch_assoc($result);
-        return $rowNum;
-    }
-}
+// function availableTrain($from,$to,$doj)
+// {
+//     {
+//         $con = getConnection();
+//         $sql = "select * from `train` where fromStation = '$from' and toStation = '$to' and dateOfJourney = '$doj'";
+//         $result = mysqli_query($con, $sql);
+//         return $result;
+//     }
+// }
+// function availableTrainn($from,$to,$doj)
+// {
+//     {
+//         $con = getConnection();
+//         $sql = "select * from `train` where fromStation = '$from' and toStation = '$to' and dateOfJourney = '$doj'";
+//         //echo $sql."<br>";
+//         $result = mysqli_query($con, $sql);
+//         $rowNum = mysqli_fetch_assoc($result);
+//         return $rowNum;
+//     }
+// }
 
 function adminPrpfile($username)
 {
@@ -238,5 +238,20 @@ function getTrainSchedule()
     return $data;
 }
 
+function availableTrain($from, $to, $doj)
+{
+    $con = getConnection();
+    $doj = date('Y-m-d', strtotime($doj));
+    $sql = "SELECT * FROM train WHERE fromStation = '$from' AND toStation = '$to' AND dateOfJourney = '$doj'";
+    $result = mysqli_query($con, $sql);
+
+    $data = array();
+    while ($row = mysqli_fetch_assoc($result)) 
+    {
+        $data[] = $row;
+    }
+
+    return $data;
+}
 
 ?>

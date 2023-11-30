@@ -1,0 +1,117 @@
+/* Reset some default styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Apply a background color to the body */
+body 
+{
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(../../picture/home/home.jpg);
+    width: 100%;
+    /* background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(../picture/home/home.jpg); */
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* Style the login form container */
+.login-div {
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the logo */
+.logo {
+    /* Add your logo styles here */
+}
+
+/* Style the title and sub-title */
+.title,
+.sub-title {
+    text-align: center;
+    color: #333;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sub-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Style the error message */
+.error {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+/* Style the form fields */
+.fields {
+    margin-bottom: 20px;
+}
+
+.usernamee,
+.password {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+/* Style the SVG icons within the form fields */
+.svg-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+
+/* Style the input fields */
+.user-input,
+.pass-input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    padding-left: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Style the login button */
+.signin-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.signin-button:hover {
+    background-color: #45a049;
+}
+
+/* Style the forgot password and sign-up links */
+.link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}

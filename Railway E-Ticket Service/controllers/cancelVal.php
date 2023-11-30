@@ -1,34 +1,26 @@
 <?php
-  require_once'../models/trainModel.php';
- 
 
-  if(isset($_COOKIE['row_name']))
-  {
-    $row_name=$_COOKIE['row_name'];
+require_once('bookTicketModel.php');
 
-      $status = cancelTicket($row_name);
-      if($status)
-      {
-          header('location: ../views/cancelTicket.php?message=cancel_successful');
+function showBookTicketPage() {
+    if (!isset($_COOKIE['status'])) {
+        header('location: login.php?err=bad_request');
+        exit();
+    }
 
-          setcookie('row_name',$row_name,time()-60,'/');
-      }else{
-        // echo "Delete Failed!";
+    $username = $_COOKIE['username'];
+    $errMessage = '';
 
-          setcookie('row_name',$row_name,time()-60,'/');
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn'])) {
+        $from = $_POST['from'];
+        $to = $_POST['to'];
+        $doj = $_POST['doj'];
 
-          header('location: ../views/cancelTicket.php?message=cancel_failed');
-      }
+        $result = availableTrain($from, $to, $doj);
+    }
 
-  }
+    require('bookTicketView.php');
+}
 
- 
-
-  else
-  {   
-
-    setcookie('row_name',$row_name,time()-60,'/');
-    header('location: ../views/cancelTicket.php?err=cancel_failed');
-          
-  }
+showBookTicketPage();
 ?>

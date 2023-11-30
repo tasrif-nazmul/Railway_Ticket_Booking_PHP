@@ -9,7 +9,7 @@ $username = $_COOKIE['username'];
 <html>
 <head>
     <title>Homepage</title>
-    <link rel="stylesheet" href="../assects/css/home.css">
+    <link rel="stylesheet" href="../assects/css/user/home.css">
 </head>
 <body>
 
@@ -21,7 +21,7 @@ $username = $_COOKIE['username'];
 
             <div class="menu">
                 <ul>
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="home.php">HOME</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="trainInfo.php">Information</a></li>
                     <li><a href="userProfile.php">Profile</a></li>
@@ -30,7 +30,7 @@ $username = $_COOKIE['username'];
             </div>
 
         </div> 
-        <div class="content">
+        <div class="sideMenu">
             <a href="trainInfo.php">Train Information</a></br>
             <a href="bookTicket.php">Book Ticket</a> </br>
             <a href="viewTicket.php">View Ticket</a> </br>

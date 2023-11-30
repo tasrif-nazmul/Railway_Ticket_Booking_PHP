@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* .main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%), url(../picture/home/home.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navbar{
+    height: 75px;
+    margin: auto;
+}
+
+.icon{
+    float: left;
+    margin-left: 50px;
+}
+
+.logo{
+    color: #ff7200;
+    font-size: 35px;
+    font-family: Arial;
+    padding-left: 20px;
+    float: left;
+    padding-top: 10px;
+    margin-top: 5px
+}
+
+.menu{
+    float: right;
+    margin-right: 100px;
+    height: 70px;
+}
+
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    margin-left: 62px;
+    margin-top: 27px;
+    font-size: 14px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+
+ul li a:hover{
+    color: #ff7200;
+} */
+
+
+/* Add your existing navbar styling here */
+
+
+
+/* Container for the content */
+.container {
+    width: 100%;
+    overflow: hidden; /* Clear floats */
+}
+
+.content {
+    width: 70%;
+    float: right; /* Float the content to the right */
+    background-color: #ff7200;
+    color: white;
+    padding: 20px;
+}
+
+table {
+    width: 100%; /* Use full width for the table within the container */
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: white;
+}
+
+td {
+    padding: 10px;
+}
+
+#typedText {
+    padding: 8px;
+    margin-right: 5px;
+}
+
+#search {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#info {
+    margin-top: 10px;
+}
+
+::placeholder {
+    color: #3b3838;
+    font-family: Arial;
+}
+

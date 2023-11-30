@@ -1,103 +1,41 @@
-<?php 
-
-session_start();
-if(!isset($_COOKIE['status']))
+<?php
+if (!isset($_COOKIE['status'])) 
 {
     header('location: login.php?err=bad_request');
 }
-	if (isset($_GET['selectSit'])) 
-    {
-		$trainname = $_GET['selectSit'];
-        $_SESSION['trainname']=$trainname;
 
-        setcookie('row_name',$trainname,time()+60*60,'/');	  
-	}
-
+if (isset($_GET['book'])) 
+{
+    $trainId = $_GET['book'];
     $con = mysqli_connect('localhost', 'root', '', 'webtech');
-    $sql = "select * from train where trainName='{$trainname}'";
-    $result = mysqli_query($con, $sql);
 
+    // Fetch train details based on train_id
+    $getTrainSql = "SELECT * FROM train WHERE id = '$trainId'";
+    $trainResult = mysqli_query($con, $getTrainSql);
 
-    $data  = mysqli_fetch_assoc($result);
+    if ($trainResult && mysqli_num_rows($trainResult) > 0) 
+    {
+        $trainDetails = mysqli_fetch_assoc($trainResult);
 
-    if (!isset($data))
-    { 
-        header('location: bookTicket.php?err=null_values');
+        // Display train details
+        echo "<p>Train Name: {$trainDetails['trainName']}</p>";
+        echo "<p>From Station: {$trainDetails['fromStation']}</p>";
+        echo "<p>Start Time: {$trainDetails['startTime']}</p>";
+        echo "<p>To Station: {$trainDetails['toStation']}</p>";
+        echo "<p>Arrival Time: {$trainDetails['arrivalTime']}</p>";
+        echo "<p>Date of Journey: {$trainDetails['dateOfJourney']}</p>";
+
+        // You can continue to display other details or handle the booking logic
+    } 
+    else 
+    {
+        echo "Train details not found.";
     }
+
+    mysqli_close($con);
+} 
+else 
+{
+    echo "Invalid request. Please go back to the search page.";
+}
 ?>
-
-
-<html>
-<head>
-    <title>Select Ticket</title>
-    <link rel="stylesheet" href="../assects/css/tableStyle.css">
-</head>
-    <body>
-    <fieldset>
-    <legend>Select Ticket</legend>
-        <form method="post"  enctype="" action="payment.php"> 
-            <table>    
-                
-                <tr>
-                    <td>
-                        Train Name
-                    </td>
-                    <td>
-                        <?php echo $data['trainName']; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        From Station
-                    </td>
-                    <td>
-                        <?php echo $data['fromStation']; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Start Time
-                    </td>
-                    <td>
-                        <?php echo $data['startTime']; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        To Station:
-                    </td>
-                    <td>
-                        <?php echo $data['toStation']; ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Arrival Time
-                    </td>
-                    <td>
-                        <?php echo $data['arrivalTime']; ?>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>
-                        Date of Journey
-                    </td>
-                    <td>
-                        <?php echo $data['dateOfJourney']; ?>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td colspan="2">
-                        <input type="submit" value="Book" name="book">
-                    </td>
-                </tr>
-
-            </table>
-        </form>
-    </fieldset>
-    </body>
-</html>
-
-        
