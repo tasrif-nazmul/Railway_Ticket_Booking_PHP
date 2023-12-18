@@ -1,4 +1,4 @@
-# Railway E-Ticket Service
+# Railway Ticket Booking
 
 ## Overview:
 Railway E-Ticket Service is a comprehensive system designed to streamline and modernize the process of booking and managing railway tickets. This project aims to provide a user-friendly electronic ticketing platform for railway services, offering convenience and efficiency to both passengers and railway authorities.
